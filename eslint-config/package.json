@@ -1,0 +1,27 @@
+{
+  "name": "eslint-config-as",
+  "version": "0.1.1",
+  "description": "Eslint config for angular projects",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb-base": "^1.0.4",
+    "eslint-plugin-import": "^1.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prepublish": "npm test",
+    "test": "eslint ."
+  },
+  "keywords": [
+    "angular-starter",
+    "generator-as",
+    "eslint",
+    "eslint-config"
+  ],
+  "author": "Maxim Samoilov <nitive@icloud.com>",
+  "license": "MIT"
+}
