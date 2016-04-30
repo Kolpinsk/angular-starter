@@ -3,7 +3,7 @@
 
 module.exports = {
   presets: [
-    require('babel-preset-es2015'),
+    require('babel-preset-es2016'),
   ],
   plugins: [
     require('babel-plugin-transform-object-rest-spread'),
