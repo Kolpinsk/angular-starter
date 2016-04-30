@@ -14,6 +14,9 @@ Then generate your new project:
 ```bash
 yo as
 
+## Modern stack
+TODO
+Node v6 required
 
 ## All-in-JS
 TODO
