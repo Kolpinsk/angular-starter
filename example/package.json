@@ -14,7 +14,6 @@
     "case": "^1.4.1",
     "cross-env": "^1.0.7",
     "eslint-config-as": "^0.1.1",
-    "ramda": "^0.21.0",
     "webpack": "^1.13.0",
     "webpack-config-as": "^0.1.0",
     "webpack-dev-server": "^1.14.1"
