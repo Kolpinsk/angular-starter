@@ -5,6 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
+    "prepublish": "npm test",
     "test": "tape test/*.js | tap-diff"
   },
   "files": [
