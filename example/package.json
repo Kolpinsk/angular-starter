@@ -1,0 +1,18 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ramda": "^0.21.0",
+    "webpack": "^1.13.0",
+    "webpack-config-as": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maxim Samoilov <nitive@icloud.com>",
+  "license": "MIT"
+}
