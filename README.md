@@ -13,6 +13,7 @@ Then generate your new project:
 
 ```bash
 yo as
+```
 
 ## Modern stack
 TODO
