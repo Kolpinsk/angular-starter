@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const root = (...pathes) => path.join(__dirname, '..', ...pathes)
-const POSTFIX = '_from_npm'
+const POSTFIX = '_from_npm/'
 
 function linkModule(moduleToLink, linkIn) {
   const moduleToLinkPath = root(linkIn, 'node_modules', `${moduleToLink}-as`)
