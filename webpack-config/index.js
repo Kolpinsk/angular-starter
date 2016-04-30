@@ -33,6 +33,9 @@ const commonLoaders = [{
 }, {
   test: /\.svg$/,
   loaders: ['svg-inline?removeSVGTagAttrs=false', 'svgo'],
+}, {
+  test: /\.(jpg|png|gif)$/,
+  loaders: ['file'],
 }]
 
 
