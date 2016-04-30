@@ -31,13 +31,13 @@ TODO
 
 ## License
 
-MIT © [Maxim Samoilov](twitter.com/nitive)
+MIT © [Maxim Samoilov](https://twitter.com/_nitive)
 
 [npm-image]: https://badge.fury.io/js/generator-as.svg
 [npm-url]: https://npmjs.org/package/generator-as
-[travis-image]: https://travis-ci.org/nitive/angular-starter.svg?branch=master
-[travis-url]: https://travis-ci.org/nitive/angular-starter
-[daviddm-image]: https://david-dm.org/nitive/angular-starter.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/nitive/angular-starter
-[coveralls-image]: https://coveralls.io/repos/nitive/angular-starter/badge.svg
-[coveralls-url]: https://coveralls.io/r/nitive/angular-starter
+[travis-image]: https://travis-ci.org/Nitive/angular-starter.svg?branch=master
+[travis-url]: https://travis-ci.org/Nitive/angular-starter
+[daviddm-image]: https://david-dm.org/Nitive/angular-starter.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/Nitive/angular-starter
+[coveralls-image]: https://coveralls.io/repos/Nitive/angular-starter/badge.svg
+[coveralls-url]: https://coveralls.io/r/Nitive/angular-starter
