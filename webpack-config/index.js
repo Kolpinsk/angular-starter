@@ -4,7 +4,6 @@
 
 const webpack = require('webpack')
 const R = require('ramda')
-const stylish = require('eslint/lib/formatters/stylish')
 
 const preLoaders = [{
   test: /\.js$/,
@@ -46,17 +45,6 @@ const getPlugins = options => {
   )
 }
 
-
-const eslintFormatter = errors => {
-  if (errors[0].messages) {
-    console.log(stylish(errors)) // eslint-disable-line no-console
-  }
-}
-
-const eslint = {
-  emitWarning: true,
-  formatter: eslintFormatter,
-}
 
 
 // const checkOptionsIsCorrect = options => {
@@ -125,7 +113,6 @@ module.exports = opts => {
     debug: isDebug,
 
     plugins,
-    eslint,
     postcss: () => ({
       defaults: [
         require('postcss-import')({ addDependencyTo: webpack }),
