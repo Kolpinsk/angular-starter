@@ -1,8 +1,8 @@
-import './main.sss'
-import template from './template.jade'
+import angular from 'angular'
 
-console.log({ template })
 
-const $ = selector => document.querySelector(selector)
+// require all components
+const req = require.context('./components', true, /\/index\.js$/i)
+const modules = req.keys().map(p => req(p).default)
 
-$('#root').innerHTML = template
+angular.module('example', modules).run()

@@ -1,23 +1,24 @@
 {
   "name": "example",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "babel-preset-as": "^1.0.0",
-    "ramda": "^0.21.0",
-    "webpack": "^1.13.0",
-    "webpack-config-as": "^0.1.0"
-  },
-  "devDependencies": {
-    "eslint-config-as": "^0.1.1"
-  },
   "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --port 3000 --content-base build --inline --config webpack.conf.js",
     "build": "webpack --config webpack.conf.js",
-    "watch": "npm run build -- -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "main": "index.js",
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "babel-preset-as": "^1.0.0",
+    "case": "^1.4.1",
+    "cross-env": "^1.0.7",
+    "eslint-config-as": "^0.1.1",
+    "ramda": "^0.21.0",
+    "webpack": "^1.13.0",
+    "webpack-config-as": "^0.1.0",
+    "webpack-dev-server": "^1.14.1"
+  },
   "author": "Maxim Samoilov <nitive@icloud.com>",
   "license": "MIT"
 }

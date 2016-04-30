@@ -4,9 +4,12 @@
   <meta charset="utf-8">
   <title>example</title>
 </head>
-<body ng-app="app">
-  <div class="test">test</div>
-  <div id="root"></div>
+<body ng-app="example">
+  <div id="root">
+    <e-button color="color" ng-click="color = 'red'">red</e-button>
+    <e-button color="color" ng-click="color = 'green'">green</e-button>
+    <e-button color="color" ng-click="color = 'blue'">blue</e-button>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
