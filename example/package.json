@@ -9,7 +9,9 @@
     "webpack": "^1.13.0",
     "webpack-config-as": "^0.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-config-as": "^0.1.1"
+  },
   "scripts": {
     "build": "webpack --config webpack.conf.js",
     "watch": "npm run build -- -w",
