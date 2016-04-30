@@ -1,1 +1,3 @@
-console.log('app')
+import './main.sss'
+
+console.log('test')

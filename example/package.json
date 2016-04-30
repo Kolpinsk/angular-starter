@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "babel-preset-as": "^1.0.0",
     "ramda": "^0.21.0",
     "webpack": "^1.13.0",
     "webpack-config-as": "^0.1.0"
   },
   "devDependencies": {},
   "scripts": {
+    "build": "webpack --config webpack.conf.js",
+    "watch": "npm run build -- -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
