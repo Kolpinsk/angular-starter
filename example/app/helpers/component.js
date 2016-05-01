@@ -3,7 +3,7 @@ import { pascal, kebab } from 'case'
 
 const component = (name, dependencies, componentOptions) => (
   angular
-    .module(`example.${kebab(name)}`, dependencies)
+    .module(`example.component.${kebab(name)}`, dependencies)
     .component(`e${pascal(name)}`, componentOptions)
     .name
 )

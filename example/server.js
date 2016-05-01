@@ -41,7 +41,6 @@ const oraReporter = () => {
 
 app.use(require('webpack-dev-middleware')(compiler, {
   reporter: oraReporter(),
-  inline: true,
 }))
 app.use(require('webpack-hot-middleware')(compiler, { log: () => 1 }))
 app.use(express.static('build/'))
