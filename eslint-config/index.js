@@ -12,5 +12,6 @@ module.exports = {
     'id-length': [err, { min: 1, max: 40 }],
     'no-multiple-empty-lines': [warn, { max: 5 }],
     'arrow-body-style': off,
+    'no-console': off,
   },
 }
