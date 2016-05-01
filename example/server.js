@@ -15,6 +15,16 @@ const app = express()
 const oraReporter = () => {
   const spinner = ora()
   spinner.start()
+  spinner.pause = () => {
+    spinner.stop()
+    const frames = spinner.spinner.frames
+    const index = spinner.frameIndex
+    const oldFrame = frames[index]
+    frames[index] = '⠿'
+    spinner.render()
+    frames[index] = oldFrame
+  }
+
   return ({ state, stats }) => {
     if (state) {
       const durations = stats.endTime - stats.startTime
@@ -32,7 +42,9 @@ const oraReporter = () => {
       }
 
       spinner.text = message
+      spinner.pause()
     } else {
+      spinner.start()
       spinner.text = 'Building...'
     }
   }
