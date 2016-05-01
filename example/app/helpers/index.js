@@ -3,7 +3,7 @@ import { pascal, camel } from 'case'
 import { endWith } from './string'
 import { PREFIX, APP_NAME } from './constants'
 
-const angularModule = (moduleName, { withPrefix = true } = {}) =>
+const createModule = (moduleName, { withPrefix = true } = {}) =>
 (name, dependencies, moduleOptions) => (
   angular
     .module(`${APP_NAME}.${moduleName}.${camel(name)}`, dependencies)
@@ -11,11 +11,16 @@ const angularModule = (moduleName, { withPrefix = true } = {}) =>
     .name
 )
 
-export const component = angularModule('component')
-export const directive = angularModule('directive')
-export const filter = angularModule('filter')
+export const component = createModule('component')
+export const directive = createModule('directive')
+export const filter = createModule('filter')
 
-export const factory = (name, ...args) => {
+
+// services
+
+const withoutPrefix = { withPrefix: false }
+
+const validateServiceName = name => {
   if (!endWith(name, 'Service')) {
     throw new Error('Service name should has Service postfix')
   }
@@ -23,6 +28,15 @@ export const factory = (name, ...args) => {
   if (pascal(name) !== name) {
     throw new Error('Service name should be in PascalCase')
   }
-
-  return angularModule('factory', { withPrefix: false })(name, ...args)
 }
+
+const createServiceWithValidation = moduleName => (name, ...args) => {
+  validateServiceName(name)
+  return createModule(moduleName, withoutPrefix)(name, ...args)
+}
+
+export const constant = createModule('constant', withoutPrefix)
+export const value = createModule('value', withoutPrefix)
+
+export const factory = createServiceWithValidation('factory')
+export const service = createServiceWithValidation('service')
