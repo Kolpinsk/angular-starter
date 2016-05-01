@@ -1,4 +1,4 @@
-import component from '../../helpers/component'
+import { component } from '../../helpers'
 import template from './template.jade'
 import './style.sss'
 
