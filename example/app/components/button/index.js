@@ -1,5 +1,6 @@
 import component from '../../helpers/component'
 import template from './template.jade'
+import './style.sss'
 
 
 export default component('button', [], {
@@ -7,7 +8,6 @@ export default component('button', [], {
     color: '<',
   },
   controller: [function ButtonController() {
-    console.log('button controller')
   }],
   transclude: true,
   replace: true,

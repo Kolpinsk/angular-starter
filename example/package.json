@@ -12,11 +12,15 @@
     "angular": "^1.5.5",
     "babel-preset-as": "^1.0.0",
     "case": "^1.4.1",
+    "colors": "^1.1.2",
     "cross-env": "^1.0.7",
     "eslint-config-as": "^0.1.1",
+    "ora": "^0.2.1",
     "webpack": "^1.13.0",
     "webpack-config-as": "^0.1.0",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-middleware": "github:nitive/webpack-dev-middleware#reporter-option",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.10.0"
   },
   "author": "Maxim Samoilov <nitive@icloud.com>",
   "license": "MIT"
