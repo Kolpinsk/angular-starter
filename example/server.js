@@ -36,7 +36,7 @@ const oraReporter = () => {
         const { errors, warnings } = stats.compilation
         errors.concat(warnings).forEach(warning => {
           if (warning.message) {
-            console.log(warning.message) // eslint-disable-line no-console
+            console.log(warning.message)
           }
         })
       }

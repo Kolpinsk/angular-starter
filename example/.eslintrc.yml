@@ -1,1 +1,4 @@
 extends: as
+
+rules:
+  no-console: 0

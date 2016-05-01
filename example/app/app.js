@@ -1,4 +1,5 @@
 import angular from 'angular'
+import { APP_NAME } from './helpers/constants'
 
 
 const requireAll = req => (
@@ -20,13 +21,19 @@ const filters = requireAll(
   require.context('./filters', true, /\.js$/)
 )
 
+// require services
+const services = requireAll(
+  require.context('./services', true, /\.js$/)
+)
+
 const dependencies = [
   ...components,
   ...directives,
   ...filters,
+  ...services,
   // filter undefined which appear if no file in directory
 ].filter(m => m)
 
-console.log(dependencies) // eslint-disable-line
+console.log(dependencies)
 
-angular.module('example', dependencies).run()
+angular.module(APP_NAME, dependencies).run()

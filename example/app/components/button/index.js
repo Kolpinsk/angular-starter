@@ -7,7 +7,8 @@ export default component('button', [], {
   bindings: {
     color: '<',
   },
-  controller: [function ButtonController() {
+  controller: ['TestService', function ButtonController(TestService) {
+    console.log(TestService)
   }],
   transclude: true,
   replace: true,
