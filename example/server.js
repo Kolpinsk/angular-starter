@@ -50,6 +50,8 @@ const oraReporter = () => {
   }
 }
 
+app.get('/', (req, res) => res.render('index.jade'))
+
 
 app.use(require('webpack-dev-middleware')(compiler, {
   reporter: oraReporter(),
