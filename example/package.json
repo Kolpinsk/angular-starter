@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node server.js",
+    "start": "cross-env NODE_ENV=development node server.js",
     "build:html": "jade views/index.jade --out build",
     "build:js": "cross-env NODE_ENV=production webpack --config webpack.conf.js",
     "build": "npm-run-all --parallel build:*",
