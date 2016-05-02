@@ -12,6 +12,7 @@
   "main": "index.js",
   "devDependencies": {
     "angular": "^1.5.5",
+    "angular-ui-router": "^0.2.18",
     "babel-preset-as": "^1.0.0",
     "case": "^1.4.1",
     "colors": "^1.1.2",

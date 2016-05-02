@@ -1,10 +1,8 @@
 import angular from 'angular'
 import { APP_NAME } from './helpers/constants'
+import requireAll from './helpers/requireAll'
+import routes from './pages/routes'
 
-
-const requireAll = req => (
-  req.keys().map(p => req(p).default)
-)
 
 // require all components
 const components = requireAll(
@@ -26,11 +24,13 @@ const services = requireAll(
   require.context('./services', true, /\.js$/)
 )
 
+
 const dependencies = [
   ...components,
   ...directives,
   ...filters,
   ...services,
+  routes,
   // filter undefined which appear if no file in directory
 ].filter(m => m)
 

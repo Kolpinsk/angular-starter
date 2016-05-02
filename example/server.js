@@ -50,13 +50,12 @@ const oraReporter = () => {
   }
 }
 
-app.get('/', (req, res) => res.render('index.jade'))
-
 
 app.use(require('webpack-dev-middleware')(compiler, {
   reporter: oraReporter(),
 }))
 app.use(require('webpack-hot-middleware')(compiler, { log: () => 1 }))
-app.use(express.static('build/'))
+app.use(express.static('build/', { index: false }))
+app.get('*', (req, res) => res.render('index.jade'))
 
 app.listen(3000)

@@ -4,8 +4,5 @@ html(lang='ru' ng-app='example' ng-strict-di)
     meta(charset='utf-8')
     title Example
   body(ng-app='example')
-    e-button(color='color' ng-click='color = "red"') red
-    e-button(color='color' ng-click='color = "green"') green
-    e-button(e-log-something color='color' ng-click='color = "blue"') blue
-
+    div(ui-view)
     script(src='app.js?t=' + Date.now())

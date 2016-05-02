@@ -4,12 +4,11 @@ import { endWith } from './string'
 import { PREFIX, APP_NAME } from './constants'
 
 const createModule = (moduleName, { withPrefix = true } = {}) =>
-(name, dependencies, moduleOptions) => (
-  angular
-    .module(`${APP_NAME}.${moduleName}.${camel(name)}`, dependencies)
-    [moduleName](`${withPrefix ? PREFIX : ''}${pascal(name)}`, moduleOptions)
-    .name
-)
+  (name, dependencies, moduleOptions) =>
+    angular
+      .module(`${APP_NAME}.${moduleName}.${camel(name)}`, dependencies)
+      [moduleName](`${withPrefix ? PREFIX : ''}${pascal(name)}`, moduleOptions)
+      .name
 
 export const component = createModule('component')
 export const directive = createModule('directive')
@@ -40,3 +39,14 @@ export const value = createModule('value', withoutPrefix)
 
 export const factory = createServiceWithValidation('factory')
 export const service = createServiceWithValidation('service')
+
+
+// routes
+
+export const routes = config =>
+  angular
+    .module(`${APP_NAME}.routes`, [require('angular-ui-router')])
+    .config(config)
+    .name
+
+export const route = (name, config) => ({ name, config })
