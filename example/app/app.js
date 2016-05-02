@@ -1,7 +1,6 @@
 import angular from 'angular'
 import { APP_NAME } from './helpers/constants'
 import requireAll from './helpers/requireAll'
-import routes from './pages/routes'
 
 
 // require all components
@@ -30,10 +29,9 @@ const dependencies = [
   ...directives,
   ...filters,
   ...services,
-  routes,
+  require('./pages/routes').default,
   // filter undefined which appear if no file in directory
 ].filter(m => m)
 
-console.log(dependencies)
 
 angular.module(APP_NAME, dependencies).run()
