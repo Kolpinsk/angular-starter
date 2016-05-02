@@ -3,21 +3,25 @@ import { pascal, camel } from 'case'
 import { endWith } from './string'
 import { PREFIX, APP_NAME } from './constants'
 
-const createModule = (moduleName, { withPrefix = true } = {}) =>
-  (name, dependencies, moduleOptions) =>
-    angular
+const createModule = ({ prefix = '', nameValidation = () => true } = {}) => moduleName =>
+  (name, dependencies, moduleOptions) => {
+    nameValidation(name)
+    const modifiedName = prefix ? prefix + pascal(name) : name
+    return angular
       .module(`${APP_NAME}.${moduleName}.${camel(name)}`, dependencies)
-      [moduleName](`${withPrefix ? PREFIX : ''}${pascal(name)}`, moduleOptions)
+      [moduleName](modifiedName, moduleOptions)
       .name
+  }
 
-export const component = createModule('component')
-export const directive = createModule('directive')
-export const filter = createModule('filter')
+const createModuleWithPrefix = createModule({ prefix: PREFIX })
+const createDefaultModule = createModule()
+
+export const component = createModuleWithPrefix('component')
+export const directive = createModuleWithPrefix('directive')
+export const filter = createModuleWithPrefix('filter')
 
 
 // services
-
-const withoutPrefix = { withPrefix: false }
 
 const validateServiceName = name => {
   if (!endWith(name, 'Service')) {
@@ -29,13 +33,10 @@ const validateServiceName = name => {
   }
 }
 
-const createServiceWithValidation = moduleName => (name, ...args) => {
-  validateServiceName(name)
-  return createModule(moduleName, withoutPrefix)(name, ...args)
-}
+const createServiceWithValidation = createModule({ nameValidation: validateServiceName })
 
-export const constant = createModule('constant', withoutPrefix)
-export const value = createModule('value', withoutPrefix)
+export const constant = createDefaultModule('constant')
+export const value = createDefaultModule('value')
 
 export const factory = createServiceWithValidation('factory')
 export const service = createServiceWithValidation('service')
