@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-as",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Eslint config for angular projects",
   "main": "index.js",
   "files": [

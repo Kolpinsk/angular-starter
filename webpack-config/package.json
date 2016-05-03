@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-as",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Webpack config for angular projects",
   "main": "index.js",
   "scripts": {
