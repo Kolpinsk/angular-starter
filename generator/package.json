@@ -30,6 +30,7 @@
   "dependencies": {
     "case": "^1.4.1",
     "if-empty": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "ramda": "^0.21.0",
     "split-keywords": "^2.0.1",
     "yeoman-generator": "^0.23.3",
