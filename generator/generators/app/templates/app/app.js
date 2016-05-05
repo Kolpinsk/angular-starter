@@ -31,7 +31,7 @@ const dependencies = [
   ...services,
   require('./pages/routes').default,
   // filter undefined which appear if no file in directory
-].filter(m => m)
+].filter(Boolean)
 
 
 angular.module(APP_NAME, dependencies).run()
