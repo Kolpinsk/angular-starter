@@ -28,6 +28,10 @@
     "url": "https://twitter.com/_nitive"
   },
   "dependencies": {
+    "case": "^1.4.1",
+    "if-empty": "^1.0.0",
+    "ramda": "^0.21.0",
+    "split-keywords": "^2.0.1",
     "yeoman-generator": "^0.23.3",
     "yosay": "^1.1.1"
   },

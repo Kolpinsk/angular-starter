@@ -1,6 +1,7 @@
 const express = require('express')
 const webpack = require('webpack')
 const ora = require('ora')
+const constants = require('./app/helpers/constants.json')
 require('colors')
 
 const webpackConfig = require('./webpack.conf')
@@ -56,6 +57,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }))
 app.use(require('webpack-hot-middleware')(compiler, { log: () => 1 }))
 app.use(express.static('build/', { index: false }))
-app.get('*', (req, res) => res.render('index.jade'))
+app.get('*', (req, res) => res.render('index.jade', constants))
 
 app.listen(3000)

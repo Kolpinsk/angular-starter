@@ -2,7 +2,7 @@ doctype html
 html(lang='ru')
   head
     meta(charset='utf-8')
-    title Example
-  body(ng-app='example' ng-strict-di)
+    title= APP_NAME
+  body(ng-app=APP_NAME ng-strict-di)
     div(ui-view)
     script(src='app.js?t=' + Date.now())

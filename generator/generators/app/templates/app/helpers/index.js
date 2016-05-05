@@ -1,7 +1,7 @@
 import angular from 'angular'
 import { pascal, camel } from 'case'
 import { endWith } from './string'
-import { PREFIX, APP_NAME } from './constants'
+import { PREFIX, APP_NAME } from './constants.json'
 
 const createModule = ({ prefix = '', nameValidation = () => true } = {}) => moduleName =>
   (name, dependencies, moduleOptions) => {
