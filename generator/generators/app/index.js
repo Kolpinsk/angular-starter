@@ -42,10 +42,12 @@ module.exports = yeoman.Base.extend({
       filter: splitKeywords,
     }]
 
-    this.prompt(questions, props => {
-      this.props = props
-      done()
-    })
+    this.prompt(questions)
+      .then(props => {
+        this.props = props
+        done()
+      })
+      .catch(console.error)
   },
 
   writing() {

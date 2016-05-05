@@ -6,9 +6,8 @@ const helpers = require('yeoman-test')
 
 const defaults = {
   appName: 'appName',
-  githubUsername: 'username',
-  website: 'test.com',
-  moduleDesc: 'Your awesome app!',
+  appDesc: 'Your awesome app!',
+  appKeywords: 'some, keywords',
 }
 
 it('generates expected files', done => {
