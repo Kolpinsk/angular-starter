@@ -27,16 +27,16 @@
     "url": "https://twitter.com/_nitive"
   },
   "dependencies": {
-    "yeoman-generator": "^0.22.0",
-    "yosay": "^1.0.2"
+    "yeoman-generator": "^0.23.3",
+    "yosay": "^1.1.1"
   },
   "devDependencies": {
-    "eslint": "^2.1.0",
-    "eslint-config-as": "^0.1.0",
+    "eslint": "^2.9.0",
+    "eslint-config-as": "^0.1.4",
     "tap-diff": "^0.1.1",
     "tape": "^4.5.1",
-    "yeoman-assert": "^2.0.0",
-    "yeoman-test": "^1.0.0"
+    "yeoman-assert": "^2.2.1",
+    "yeoman-test": "^1.4.0"
   },
   "homepage": "github.com/Nitive/angular-starter",
   "repository": "Nitive/generator-angular-starter",
