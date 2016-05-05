@@ -1,11 +1,27 @@
+const R = require('ramda')
 const yeoman = require('yeoman-generator')
 const yosay = require('yosay')
 const ifEmpty = require('if-empty')
+const mkdirp = require('mkdirp')
 const splitKeywords = require('split-keywords')
 const { kebab } = require('case')
 require('colors')
 
+const rejectNil = R.reject(R.isNil)
+
+const appNamePromptTemplate = `
+Node module’s name: "$ yo as pify";
+node module will be initialized in created folder
+and you will be redirected to that folder
+`
+
 module.exports = yeoman.Base.extend({
+  constructor: function (...args) { // eslint-disable-line
+    yeoman.Base.apply(this, args)
+    this.argument('name', { type: String, required: false,
+      desc: appNamePromptTemplate,
+    })
+  },
   prompting() {
     const done = this.async()
 
@@ -43,14 +59,21 @@ module.exports = yeoman.Base.extend({
     }]
 
     this.prompt(questions)
-      .then(props => {
-        this.props = props
+      .then(inputAnswers => {
+        this.props = R.mergeAll([
+          { moduleName: this.name },
+          rejectNil(inputAnswers),
+        ])
         done()
       })
       .catch(console.error)
   },
 
   writing() {
+    if (this.name) {
+      mkdirp(this.props.moduleName)
+      this.destinationRoot(this.destinationPath(this.props.moduleName))
+    }
     const create = (template, dest) => {
       if (dest === undefined) {
         dest = template // eslint-disable-line
