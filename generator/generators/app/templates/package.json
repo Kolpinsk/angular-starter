@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
-    "build:html": "jade views/index.jade --out build",
+    "build:html": "jade views/index.jade --out build --obj app/helpers/constants.json",
     "build:js": "cross-env NODE_ENV=production webpack --config webpack.conf.js",
     "build": "npm-run-all --parallel build:*",
     "test": "echo \"Error: no test specified\" && exit 1"
