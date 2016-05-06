@@ -1,4 +1,4 @@
-const { camel } = require('case')
+const { pascal } = require('case')
 const yeoman = require('yeoman-generator')
 require('colors')
 
@@ -12,7 +12,7 @@ module.exports = yeoman.Base.extend({
     yeoman.Base.apply(this, args)
     this.argument('serviceName', {
       type: String,
-      filter: camel,
+      filter: pascal,
       desc: serviceNamePromptTemplate,
     })
   },
