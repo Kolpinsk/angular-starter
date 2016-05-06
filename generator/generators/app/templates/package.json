@@ -1,6 +1,6 @@
 {
   "name": "<%= appName %>",
-  "version": "0.1.0",
+  "version": "<%= appVersion %>",
   "description": "<%= appDesc %>",
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
@@ -9,7 +9,7 @@
     "build": "npm-run-all --parallel build:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "index.js",
+  "main": "app/app.js",
   "devDependencies": {
     "angular": "^1.5.5",
     "angular-ui-router": "^0.2.18",
@@ -25,6 +25,7 @@
     "webpack-dev-middleware": "github:nitive/webpack-dev-middleware#reporter-option",
     "webpack-hot-middleware": "^2.10.0"
   },
-  "author": "Maxim Samoilov <nitive@icloud.com>",
-  "license": "MIT"
+  "author": "<%= name %> <<%= email %>>",
+  "keywords": "<%= appKeywords %>",
+  "license": "<%= appLicense %>"
 }
