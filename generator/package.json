@@ -7,7 +7,7 @@
     "pretest": "npm run lint",
     "prepublish": "npm test",
     "tdd": "npm test -- --watch",
-    "test": "mocha generators/*/test.js"
+    "test": "mocha -r mocha-clean generators/*/test.js"
   },
   "files": [
     "generators"
@@ -41,6 +41,7 @@
     "eslint": "^2.9.0",
     "eslint-config-as": "^0.1.4",
     "mocha": "^2.4.5",
+    "mocha-clean": "^1.0.0",
     "yeoman-assert": "^2.2.1",
     "yeoman-test": "^1.4.0"
   },

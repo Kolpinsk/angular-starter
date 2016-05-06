@@ -12,8 +12,8 @@
   "main": "app/app.js",
   "devDependencies": {
     "angular": "^1.5.5",
-    "angular-ui-router": "^0.2.18",
-    "babel-preset-as": "^1.0.1",
+    <% if (withRouting) { %>"angular-ui-router": "^0.2.18",
+    <% } %>"babel-preset-as": "^1.0.1",
     "case": "^1.4.1",
     "colors": "^1.1.2",
     "cross-env": "^1.0.7",

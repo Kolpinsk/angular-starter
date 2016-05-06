@@ -1,6 +1,3 @@
-/* eslint-disable func-names */
-
-const path = require('path')
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 require('chai').should()
@@ -14,6 +11,7 @@ const defaults = {
   email: 'max@company.com',
   appLicense: 'BSD',
 }
+
 
 it('generates expected files', done => {
   helpers.run(__dirname)
@@ -40,12 +38,43 @@ it('generates expected files', done => {
 })
 
 
+it('generates routes right', done => {
+  helpers.run(__dirname)
+    .withPrompts(defaults)
+    .on('end', () => {
+      assert.file('app/pages/routes.js')
+      assert.fileContent('app/app.js', `\n  require('./pages/routes').default,\n`)
+      done()
+    })
+  .on('error', done)
+})
+
+
+it('not generates routes if withRouting === false', done => {
+  helpers.run(__dirname)
+    .withPrompts(Object.assign(defaults, { withRouting: false }))
+    .on('end', () => {
+      assert.noFile('app/pages/routes.js')
+      assert.noFileContent([
+        ['app/app.js', 'require(\'./pages/routes\')'],
+        ['package.json', 'angular-ui-router'],
+        ['package.json', '\n    \n'],
+      ])
+      assert.fileContent('app/app.js', `\n  ...services,\n  //`)
+      done()
+    })
+  .on('error', done)
+})
+
+
 it('generates README right', done => {
   helpers.run(__dirname)
     .withPrompts(defaults)
     .on('end', () => {
-      assert.fileContent('README.md', '# app-name')
-      assert.fileContent('README.md', '> Your awesome app!')
+      assert.fileContent([
+        ['README.md', '# app-name'],
+        ['README.md', '> Your awesome app!'],
+      ])
       done()
     })
   .on('error', done)
@@ -55,13 +84,14 @@ it('generates README right', done => {
 it('generates package.json right', done => {
   helpers.run(__dirname)
     .withPrompts(defaults)
-    .on('end', function () {
-      const packageJson = require(path.join(this.env.cwd, 'package.json'))
-      packageJson.name.should.be.equal('app-name')
-      packageJson.description.should.be.equal('Your awesome app!')
-      packageJson.author.should.be.equal('max <max@company.com>')
-      packageJson.keywords.should.be.deep.equal('some, keywords')
-      packageJson.license.should.be.equal('BSD')
+    .on('end', () => {
+      assert.jsonFileContent('package.json', {
+        name: 'app-name',
+        description: 'Your awesome app!',
+        author: 'max <max@company.com>',
+        keywords: 'some, keywords',
+        license: 'BSD',
+      })
       done()
     })
   .on('error', done)

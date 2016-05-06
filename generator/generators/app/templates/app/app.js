@@ -29,8 +29,8 @@ const dependencies = [
   ...directives,
   ...filters,
   ...services,
-  require('./pages/routes').default,
-  // filter undefined which appear if no file in directory
+  <% if (withRouting) { %>require('./pages/routes').default,
+  <% } %>// filter undefined which appear if no file in directory
 ].filter(Boolean)
 
 

@@ -60,6 +60,11 @@ module.exports = yeoman.Base.extend({
       name: 'appKeywords',
       message: 'Ⓐ keywords:',
       filter: splitKeywords,
+    }, {
+      name: 'withRouting',
+      message: 'Ⓐ Include routing library?:',
+      type: 'confirm',
+      default: true,
     }]
 
     this.prompt(questions)
@@ -105,6 +110,10 @@ module.exports = yeoman.Base.extend({
       'app/helpers/string.js',
     ]
     files.forEach(file => create(file))
+
+    if (this.props.withRouting) {
+      create('app/pages/routes.js')
+    }
   },
 
   install() {
