@@ -1,7 +1,8 @@
-// const path = require('path')
+const path = require('path')
 // const R = require('ramda')
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
+require('chai').should()
 
 
 const defaults = {
@@ -13,7 +14,7 @@ const defaults = {
 it('generates expected files', done => {
   helpers.run(__dirname)
     .withPrompts(defaults)
-    .on('end', () => {
+    .on('end', function () {
       assert.file([
         '.babelrc',
         '.editorconfig',
@@ -29,8 +30,11 @@ it('generates expected files', done => {
         'app/helpers/requireAll.js',
         'app/helpers/string.js',
       ])
-      assert.fileContent('README.md', '# appName')
-      // assert.fileContent('README.md', '[![Windows Build Status][appveyor-image]][appveyor-url]')
+      assert.fileContent('README.md', `# ${defaults.appName}`)
+      assert.fileContent('README.md', `> ${defaults.appDesc}`)
+      const packageJson = require(path.join(this.env.cwd, 'package.json'))
+      packageJson.name.should.be.equal('appName')
+      packageJson.description.should.be.equal(defaults.appDesc)
       done()
     })
   .on('error', done)

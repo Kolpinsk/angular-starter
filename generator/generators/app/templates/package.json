@@ -1,7 +1,7 @@
 {
-  "name": "example",
+  "name": "<%= appName %>",
   "version": "0.1.0",
-  "description": "",
+  "description": "<%= appDesc %>",
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
     "build:html": "jade views/index.jade --out build --obj app/helpers/constants.json",

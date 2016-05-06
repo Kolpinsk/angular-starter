@@ -50,6 +50,10 @@ module.exports = yeoman.Base.extend({
       default: kebab(this.name || this.appname),
       filter: kebab,
     }, {
+      name: 'prefix',
+      message: 'Ⓐ prefix for directives:',
+      default: '',
+    }, {
       name: 'appDesc',
       message: 'Ⓐ description:',
     }, {

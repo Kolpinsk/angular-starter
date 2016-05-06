@@ -1,4 +1,4 @@
 {
-  "APP_NAME": "example",
-  "PREFIX": "e"
+  "APP_NAME": "<%= appName %>",
+  "PREFIX": "<%= prefix %>"
 }
