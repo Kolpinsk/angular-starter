@@ -94,6 +94,15 @@ module.exports = yeoman.Base.extend({
       )
     }
 
+    const mkdir = p => mkdirp(this.destinationPath(p))
+    const folders = [
+      'app/services/',
+      'app/components/',
+      'app/directives/',
+      'app/filters/',
+    ]
+    folders.forEach(mkdir)
+
     const files = [
       '.babelrc',
       '.editorconfig',

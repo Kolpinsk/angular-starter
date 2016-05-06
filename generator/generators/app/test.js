@@ -27,11 +27,17 @@ describe('app', () => {
           'README.md',
           'server.js',
           'webpack.conf.js',
-          'app/app.js',
+          'app/components/',
+          'app/directives/',
+          'app/filters/',
+          'app/helpers/',
           'app/helpers/constants.json',
           'app/helpers/index.js',
           'app/helpers/requireAll.js',
           'app/helpers/string.js',
+          'app/pages/',
+          'app/services/',
+          'app/app.js',
         ])
         done()
       })
