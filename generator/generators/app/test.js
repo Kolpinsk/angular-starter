@@ -1,7 +1,6 @@
 /* eslint-disable func-names */
 
 const path = require('path')
-// const R = require('ramda')
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 require('chai').should()
@@ -47,7 +46,6 @@ it('generates README right', done => {
     .on('end', () => {
       assert.fileContent('README.md', '# app-name')
       assert.fileContent('README.md', '> Your awesome app!')
-
       done()
     })
   .on('error', done)
@@ -64,7 +62,6 @@ it('generates package.json right', done => {
       packageJson.author.should.be.equal('max <max@company.com>')
       packageJson.keywords.should.be.deep.equal('some, keywords')
       packageJson.license.should.be.equal('BSD')
-
       done()
     })
   .on('error', done)

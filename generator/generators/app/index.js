@@ -26,7 +26,7 @@ module.exports = yeoman.Base.extend({
     const done = this.async()
 
     // Have Yeoman greet the user.
-    this.log(yosay(`Welcome to the wicked ${'angular-starter'.red} generator!`))
+    this.log(yosay(`Welcome to the ${'angular-starter'.red} generator!`))
 
     const questions = [{
       name: 'name',
