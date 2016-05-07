@@ -12,7 +12,7 @@ npm install -g generator-as yo
 Then generate your new project:
 
 ```bash
-yo as
+yo as project-name
 ```
 
 ## Modern stack
@@ -25,9 +25,18 @@ TODO
 ## PostCSS
 TODO
 
+## Yeoman generator
+
+
 ## Separate modules for configs
 TODO
 
+## Recommended tools
+> easy ➞ hard to learn
+> 🌕🌖🌗🌘🌑
+
+- [EditorConfig](http://editorconfig.org) 🌕
+- [Eslint](http://eslint.org) 🌗
 
 ## License
 
