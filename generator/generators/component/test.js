@@ -21,6 +21,7 @@ describe('component', () => {
     .on('error', done)
   })
 
+
   it('generates index.js right', done => {
     runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
       .withArguments(['component'])
@@ -29,6 +30,19 @@ describe('component', () => {
           [p('index.js'), 'function ComponentController'],
           [p('index.js'), 'component(\'component\', '],
           [p('index.js'), '// replace <app-component />'],
+        ])
+        done()
+      })
+      .on('error', done)
+  })
+
+
+  it('generates template.jade right', done => {
+    runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
+      .withArguments(['component'])
+      .on('end', () => {
+        assert.fileContent([
+          [p('template.jade'), '.component\n  | component'],
         ])
         done()
       })
