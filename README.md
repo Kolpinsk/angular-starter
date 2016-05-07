@@ -3,7 +3,7 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-angular-starter using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-as using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g generator-as yo
