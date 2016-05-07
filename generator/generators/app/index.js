@@ -117,6 +117,7 @@ module.exports = yeoman.Base.extend({
       'app/helpers/index.js',
       'app/helpers/requireAll.js',
       'app/helpers/string.js',
+      'views/index.jade',
     ]
     files.forEach(file => create(file.replace(/^\./, ''), file))
 

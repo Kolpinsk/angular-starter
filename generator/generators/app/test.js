@@ -35,9 +35,9 @@ describe('app', () => {
           'app/helpers/index.js',
           'app/helpers/requireAll.js',
           'app/helpers/string.js',
-          'app/pages/',
           'app/services/',
           'app/app.js',
+          'views/index.jade',
         ])
         done()
       })
