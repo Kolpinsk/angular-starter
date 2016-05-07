@@ -26,6 +26,38 @@ TODO
 TODO
 
 ## Yeoman generator
+Automate routine with yeoman generator.
+Just use these commands:
+
+Create project:
+```bash
+yo as project-name
+```
+
+Add component:
+```bash
+yo as:component component-name [--no-styles]
+```
+
+Add directive:
+```bash
+yo as:directive directive-name
+```
+
+Add filter:
+```bash
+yo as:filter filter-name
+```
+
+Add page:
+```bash
+yo as:page [--url URL] [--state STATE]
+```
+
+Add service:
+```bash
+yo as:service service-name
+```
 
 
 ## Separate modules for configs

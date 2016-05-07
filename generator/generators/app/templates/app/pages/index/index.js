@@ -5,7 +5,7 @@ import './style.sss'
 export default route('index', {
   url: '/',
   template,
-  controller: [function State1Controller() {
+  controller: [function IndexController() {
     console.log('index page')
   }],
 })
