@@ -3,7 +3,7 @@ const helpers = require('yeoman-test')
 const { runGeneratorInApp } = require('../../testHelper')
 require('chai').should()
 
-const p = file => `app/components/component/${file}`
+const p = file => `app/components/${file}`
 
 
 describe('component', () => {
@@ -12,9 +12,9 @@ describe('component', () => {
       .withArguments(['component'])
       .on('end', () => {
         assert.file([
-          'index.js',
-          'template.jade',
-          'style.sss',
+          'component/index.js',
+          'component/template.jade',
+          'component/style.sss',
         ].map(p))
         done()
       })
@@ -27,9 +27,9 @@ describe('component', () => {
       .withArguments(['component'])
       .on('end', () => {
         assert.fileContent([
-          [p('index.js'), 'function ComponentController'],
-          [p('index.js'), 'component(\'component\', '],
-          [p('index.js'), '// replace <app-component />'],
+          [p('component/index.js'), 'function ComponentController'],
+          [p('component/index.js'), 'component(\'component\', '],
+          [p('component/index.js'), '// replace <app-component />'],
         ])
         done()
       })
@@ -39,10 +39,23 @@ describe('component', () => {
 
   it('generates template.jade right', done => {
     runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
-      .withArguments(['component'])
+      .withArguments(['componentName'])
       .on('end', () => {
         assert.fileContent([
-          [p('template.jade'), '.component\n  | component'],
+          [p('componentName/template.jade'), '.component-name\n  | componentName'],
+        ])
+        done()
+      })
+      .on('error', done)
+  })
+
+
+  it('generates styles.sss right', done => {
+    runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
+      .withArguments(['componentName'])
+      .on('end', () => {
+        assert.fileContent([
+          [p('componentName/style.sss'), '.component-name'],
         ])
         done()
       })
