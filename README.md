@@ -68,7 +68,7 @@ TODO
 > 🌕🌖🌗🌘🌑
 
 - [EditorConfig](http://editorconfig.org) 🌕
-- [Eslint](http://eslint.org) 🌗
+- [Eslint in your editor](http://eslint.org/docs/user-guide/integrations#editors) 🌗
 
 ## License
 
