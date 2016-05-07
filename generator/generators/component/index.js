@@ -1,5 +1,5 @@
 const path = require('path')
-const { camel, pascal } = require('case')
+const { camel, pascal, kebab } = require('case')
 const yeoman = require('yeoman-generator')
 
 const componentNamePromptTemplate = `
@@ -31,7 +31,7 @@ module.exports = yeoman.Base.extend({
       this.fs.copyTpl(
         this.templatePath(template),
         this.destinationPath(path.join(`app/components/${this.componentName}/`, dest)),
-        { componentName: this.componentName, pascal, constants }
+        { componentName: this.componentName, pascal, kebab, constants }
       )
     }
     const files = [
