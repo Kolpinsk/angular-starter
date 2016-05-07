@@ -66,6 +66,7 @@ describe('app', () => {
           ['app/app.js', 'require(\'./pages/routes\')'],
           ['package.json', 'angular-ui-router'],
           ['package.json', '\n    \n'],
+          ['app/helpers/index.js', 'routes'],
         ])
         assert.fileContent('app/app.js', `\n  ...services,\n  //`)
         done()

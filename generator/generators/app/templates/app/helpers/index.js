@@ -40,7 +40,7 @@ export const value = createDefaultModule('value')
 
 export const factory = createServiceWithValidation('factory')
 export const service = createServiceWithValidation('service')
-
+<% if (withRouting) { %>
 
 // routes
 
@@ -50,4 +50,4 @@ export const routes = config =>
     .config(config)
     .name
 
-export const route = (name, config) => ({ name, config })
+export const route = (name, config) => ({ name, config })<% } %>
