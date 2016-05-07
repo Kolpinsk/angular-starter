@@ -118,7 +118,7 @@ module.exports = yeoman.Base.extend({
       'app/helpers/requireAll.js',
       'app/helpers/string.js',
     ]
-    files.forEach(file => create(file))
+    files.forEach(file => create(file.replace(/^\./, ''), file))
 
     if (this.props.withRouting) {
       create('app/pages/routes.js')

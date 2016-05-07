@@ -10,7 +10,8 @@
     "test": "mocha -r mocha-clean generators/*/test.js"
   },
   "files": [
-    "generators"
+    "generators",
+    "README.md"
   ],
   "main": "generators/index.js",
   "keywords": [
