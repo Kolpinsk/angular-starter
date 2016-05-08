@@ -26,6 +26,7 @@
     "posthtml": "^0.8.6",
     "posthtml-jade": "^0.8.2",
     "posthtml-loader": "^0.8.3",
+    "precss": "^1.4.0",
     "ramda": "^0.21.0",
     "raw-loader": "^0.5.1",
     "source-map-loader": "^0.1.5",

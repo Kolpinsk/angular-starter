@@ -116,6 +116,7 @@ module.exports = opts => {
     postcss: () => ({
       defaults: [
         require('postcss-import')({ addDependencyTo: webpack }),
+        require('precss')(),
         require('postcss-cssnext')(),
       ],
       parser: require('sugarss'),
