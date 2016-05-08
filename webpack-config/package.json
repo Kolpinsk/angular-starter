@@ -21,6 +21,7 @@
     "html-loader": "^0.4.3",
     "json-loader": "^0.5.4",
     "postcss-cssnext": "^2.5.2",
+    "postcss-define-property": "^0.3.1",
     "postcss-import": "^8.1.0",
     "postcss-loader": "^0.9.1",
     "posthtml": "^0.8.6",
