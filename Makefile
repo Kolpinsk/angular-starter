@@ -1,13 +1,3 @@
-# link/unlink
-
-link_modules:
-	node helpers/link.js
-
-unlink_modules:
-	node helpers/unlink.js
-
-
-
 # tests
 
 travis-test:
