@@ -36,6 +36,7 @@ module.exports = yeoman.Base.extend({
     }
     const files = [
       'index.js',
+      'README.md',
       'template.jade',
       'style.sss',
     ]

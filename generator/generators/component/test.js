@@ -15,6 +15,7 @@ describe('component', () => {
           'component/index.js',
           'component/template.jade',
           'component/style.sss',
+          'component/README.md',
         ].map(p))
         done()
       })
@@ -29,7 +30,19 @@ describe('component', () => {
         assert.fileContent([
           [p('component/index.js'), 'function ComponentController'],
           [p('component/index.js'), 'component(\'component\', '],
-          [p('component/index.js'), '// replace <app-component />'],
+        ])
+        done()
+      })
+      .on('error', done)
+  })
+
+
+  it('generates README.md right', done => {
+    runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
+      .withArguments(['component'])
+      .on('end', () => {
+        assert.fileContent([
+          [p('component/README.md'), '<app-component />'],
         ])
         done()
       })
