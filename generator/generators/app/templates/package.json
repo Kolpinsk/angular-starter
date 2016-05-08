@@ -24,6 +24,7 @@
     "webpack": "^1.13.0",
     "webpack-config-as": "^0.1.2",
     "webpack-dev-middleware": "github:nitive/webpack-dev-middleware#reporter-option",
+    "webpack-dots-reporter": "^0.1.1",
     "webpack-hot-middleware": "^2.10.0"
   },
   "author": "<%= name %> <<%= email %>>",
