@@ -10,7 +10,7 @@ exports.mockPrompts = {
   email: 'max@company.com',
 }
 
-exports.runGeneratorInApp = (pathToGenerator, { prompts }) => {
+exports.runGeneratorInApp = (pathToGenerator, { prompts } = {}) => {
   return helpers.run(pathToGenerator)
     .inTmpDir(function () { // eslint-disable-line
       const done = this.async()
