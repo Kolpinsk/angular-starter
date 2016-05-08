@@ -1,6 +1,7 @@
 const path = require('path')
 const { camel, pascal, kebab } = require('case')
 const yeoman = require('yeoman-generator')
+const { getConstants } = require('../../testHelper')
 
 const componentNamePromptTemplate = `
 Angular component’s name: "$ yo as:component button";
@@ -17,13 +18,7 @@ module.exports = yeoman.Base.extend({
     })
   },
   writing() {
-    const constants = (() => {
-      try {
-        return require(this.destinationPath('app/helpers/constants.json'))
-      } catch (err) {
-        return {}
-      }
-    })()
+    const constants = getConstants(this)
     const create = (template, dest) => {
       if (dest === undefined) {
         dest = template // eslint-disable-line
