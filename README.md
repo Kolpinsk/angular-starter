@@ -1,4 +1,4 @@
-# angular-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# angular-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 > Generator to fast start project with angular, webpack, postcss+sugarss, babel, eslint
 
 ## Installation
@@ -78,7 +78,3 @@ MIT © [Maxim Samoilov](https://twitter.com/_nitive)
 [npm-url]: https://npmjs.org/package/generator-as
 [travis-image]: https://travis-ci.org/Nitive/angular-starter.svg?branch=master
 [travis-url]: https://travis-ci.org/Nitive/angular-starter
-[daviddm-image]: https://david-dm.org/Nitive/angular-starter.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/Nitive/angular-starter
-[coveralls-image]: https://coveralls.io/repos/Nitive/angular-starter/badge.svg
-[coveralls-url]: https://coveralls.io/r/Nitive/angular-starter
