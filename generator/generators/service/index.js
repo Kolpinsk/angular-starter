@@ -19,7 +19,7 @@ module.exports = yeoman.Base.extend({
   writing() {
     this.fs.copyTpl(
       this.templatePath('service.js'),
-      this.destinationPath(`app/service/${this.serviceName}.js`),
+      this.destinationPath(`app/services/${this.serviceName}.js`),
       { serviceName: this.serviceName }
     )
   },

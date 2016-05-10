@@ -4,14 +4,14 @@ require('chai').should()
 
 
 
-describe('service', () => {
+describe('directive', () => {
   it('generates expected files', done => {
     helpers.run(__dirname)
-      .withArguments(['Name'])
+      .withArguments(['autofocus'])
       .on('end', () => {
-        const file = 'app/services/Name.js'
+        const file = 'app/directives/autofocus.js'
         assert.file(file)
-        assert.fileContent(file, 'factory(\'NameService\', ')
+        assert.fileContent(file, 'directive(\'autofocus\', ')
         done()
       })
     .on('error', done)
