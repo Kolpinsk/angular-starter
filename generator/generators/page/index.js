@@ -13,11 +13,11 @@ module.exports = yeoman.Base.extend({
     yeoman.Base.apply(this, args)
     this.argument('pageName', {
       type: String,
-      filter: camel,
       desc: pageNamePromptTemplate,
     })
   },
   writing() {
+    const pageName = camel(this.pageName)
     const constants = getConstants(this)
     const create = (template, dest) => {
       if (dest === undefined) {
@@ -25,8 +25,8 @@ module.exports = yeoman.Base.extend({
       }
       this.fs.copyTpl(
         this.templatePath(template),
-        this.destinationPath(path.join(`app/pages/${this.pageName}/`, dest)),
-        { pageName: this.pageName, pascal, kebab, constants }
+        this.destinationPath(path.join(`app/pages/${pageName}/`, dest)),
+        { pageName, pascal, kebab, constants }
       )
     }
     const files = [
