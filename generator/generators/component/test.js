@@ -55,7 +55,7 @@ describe('component', () => {
       .withArguments(['componentName'])
       .on('end', () => {
         assert.fileContent([
-          [p('componentName/template.jade'), '.component-name\n  | componentName'],
+          [p('component-name/template.jade'), '.component-name\n  | component-name'],
         ])
         done()
       })
@@ -68,7 +68,7 @@ describe('component', () => {
       .withArguments(['componentName'])
       .on('end', () => {
         assert.fileContent([
-          [p('componentName/style.sss'), '.component-name'],
+          [p('component-name/style.sss'), '.component-name'],
         ])
         done()
       })

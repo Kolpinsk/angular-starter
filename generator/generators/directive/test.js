@@ -7,11 +7,11 @@ require('chai').should()
 describe('directive', () => {
   it('generates expected files', done => {
     helpers.run(__dirname)
-      .withArguments(['autofocus'])
+      .withArguments(['autoFocus'])
       .on('end', () => {
-        const file = 'app/directives/autofocus.js'
+        const file = 'app/directives/auto-focus.js'
         assert.file(file)
-        assert.fileContent(file, 'directive(\'autofocus\', ')
+        assert.fileContent(file, 'directive(\'auto-focus\', ')
         done()
       })
     .on('error', done)
