@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const { runGeneratorInApp } = require('../../testHelper')
+const { runGeneratorInApp, eslintCheck } = require('../../testHelper')
 require('chai').should()
 
 const p = file => `app/components/${file}`
@@ -10,13 +10,15 @@ describe('component', () => {
   it('generates expected files', done => {
     helpers.run(__dirname)
       .withArguments(['component'])
-      .on('end', () => {
-        assert.file([
+      .on('end', function () {
+        const files = [
           'component/index.js',
           'component/template.jade',
           'component/style.sss',
           'component/README.md',
-        ].map(p))
+        ].map(p)
+        assert.file(files)
+        eslintCheck(this, files)
         done()
       })
     .on('error', done)

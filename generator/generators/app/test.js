@@ -1,5 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
+const { eslintCheck } = require('../../testHelper')
 require('chai').should()
 
 
@@ -17,8 +18,8 @@ describe('app', () => {
   it('generates expected files', done => {
     helpers.run(__dirname)
       .withPrompts(defaults)
-      .on('end', () => {
-        assert.file([
+      .on('end', function () {
+        const files = [
           '.babelrc',
           '.editorconfig',
           '.eslintrc.yml',
@@ -38,7 +39,9 @@ describe('app', () => {
           'app/services/',
           'app/app.js',
           'views/index.jade',
-        ])
+        ]
+        assert.file(files)
+        eslintCheck(this, files)
         done()
       })
     .on('error', done)

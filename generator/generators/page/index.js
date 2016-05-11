@@ -1,7 +1,7 @@
 const path = require('path')
 const { camel, pascal, kebab } = require('case')
 const yeoman = require('yeoman-generator')
-const { getConstants } = require('../../testHelper')
+const { getConstants, eslintCheck } = require('../../testHelper')
 
 const pageNamePromptTemplate = `
 Angular page’s name: "$ yo as:page index";
@@ -35,5 +35,6 @@ module.exports = yeoman.Base.extend({
       'style.sss',
     ]
     files.forEach(file => create(file))
+    eslintCheck(this, files)
   },
 })
