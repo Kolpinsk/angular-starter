@@ -12,15 +12,15 @@ module.exports = yeoman.Base.extend({
     yeoman.Base.apply(this, args)
     this.argument('filterName', {
       type: String,
-      filter: kebab,
       desc: filterNamePromptTemplate,
     })
   },
   writing() {
+    const filterName = kebab(this.filterName)
     this.fs.copyTpl(
       this.templatePath('filter.js'),
-      this.destinationPath(`app/filters/${this.filterName}.js`),
-      { filterName: this.filterName }
+      this.destinationPath(`app/filters/${filterName}.js`),
+      { filterName }
     )
   },
 })
