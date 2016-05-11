@@ -2,3 +2,6 @@ extends: as
 
 env:
   mocha: true
+
+rules:
+  func-names: off

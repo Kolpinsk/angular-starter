@@ -1,15 +1,16 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
+const { eslintCheck } = require('../../testHelper')
 require('chai').should()
-
 
 
 describe('filter', () => {
   it('generates expected files', done => {
     helpers.run(__dirname)
       .withArguments(['emoji'])
-      .on('end', () => {
+      .on('end', function () {
         const file = 'app/filters/emoji.js'
+        eslintCheck(this, [file])
         assert.file(file)
         assert.fileContent(file, 'filter(\'emoji\', ')
         done()

@@ -4,4 +4,4 @@ export default filter('<%= filterName %>', [], () => {
   return () => {
     return <%= filterName %>
   }
-})
+});

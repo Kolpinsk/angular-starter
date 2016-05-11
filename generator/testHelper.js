@@ -1,6 +1,7 @@
 const path = require('path')
 const helpers = require('yeoman-test')
 const R = require('ramda')
+require('colors')
 
 exports.mockPrompts = {
   appName: 'app-name',
@@ -27,4 +28,22 @@ exports.getConstants = self => {
   } catch (err) {
     return {}
   }
+}
+
+
+// eslint
+
+const { CLIEngine } = require('eslint')
+const eslint = new CLIEngine()
+
+exports.eslintCheck = (context, files) => {
+  const cwd = context.env.cwd
+  const getAbsolutePath = file => path.join(cwd, file)
+  const formatMessage = msg => `${msg.message} ${'|'.cyan} ${msg.source.white}`
+
+  const eslintReport = eslint.executeOnFiles(files.map(getAbsolutePath))
+  eslintReport.results.forEach(err => {
+    const messages = err.messages.map(formatMessage).join('\n')
+    throw new Error(messages, err.filePath)
+  })
 }
