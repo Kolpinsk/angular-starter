@@ -34,16 +34,24 @@ exports.getConstants = self => {
 // eslint
 
 const { CLIEngine } = require('eslint')
-const eslint = new CLIEngine()
+const eslintConfig = require('eslint-config-as')
+const eslint = new CLIEngine(R.merge(eslintConfig, {
+  useEslintrc: false,
+  parser: 'babel-eslint',
+}))
 
 exports.eslintCheck = (context, files) => {
   const cwd = context.env.cwd
   const getAbsolutePath = file => path.join(cwd, file)
-  const formatMessage = msg => `${msg.message} ${'|'.cyan} ${msg.source.white}`
+  const formatMessage = msg =>
+    `${msg.message} ${'|'.cyan} ${msg.source && msg.source.white}`
+
 
   const eslintReport = eslint.executeOnFiles(files.map(getAbsolutePath))
   eslintReport.results.forEach(err => {
     const messages = err.messages.map(formatMessage).join('\n')
-    throw new Error(messages, err.filePath)
+    if (messages) {
+      throw new Error(messages, err.filePath)
+    }
   })
 }
