@@ -1,5 +1,5 @@
 const path = require('path')
-const { camel, pascal, kebab } = require('case')
+const { pascal, kebab } = require('case')
 const yeoman = require('yeoman-generator')
 const { getConstants } = require('../../testHelper')
 
@@ -13,20 +13,20 @@ module.exports = yeoman.Base.extend({
     yeoman.Base.apply(this, args)
     this.argument('componentName', {
       type: String,
-      filter: camel,
       desc: componentNamePromptTemplate,
     })
   },
   writing() {
     const constants = getConstants(this)
+    const componentName = kebab(this.componentName)
     const create = (template, dest) => {
       if (dest === undefined) {
         dest = template // eslint-disable-line
       }
       this.fs.copyTpl(
         this.templatePath(template),
-        this.destinationPath(path.join(`app/components/${this.componentName}/`, dest)),
-        { componentName: this.componentName, pascal, kebab, constants }
+        this.destinationPath(path.join(`app/components/${componentName}/`, dest)),
+        { componentName, pascal, kebab, constants }
       )
     }
     const files = [
