@@ -12,15 +12,15 @@ module.exports = yeoman.Base.extend({
     yeoman.Base.apply(this, args)
     this.argument('directiveName', {
       type: String,
-      filter: kebab,
       desc: directiveNamePromptTemplate,
     })
   },
   writing() {
+    const directiveName = kebab(this.directiveName)
     this.fs.copyTpl(
       this.templatePath('directive.js'),
-      this.destinationPath(`app/directives/${this.directiveName}.js`),
-      { directiveName: this.directiveName }
+      this.destinationPath(`app/directives/${directiveName}.js`),
+      { directiveName }
     )
   },
 })
