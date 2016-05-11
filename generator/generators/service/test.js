@@ -7,7 +7,7 @@ require('chai').should()
 describe('service', () => {
   it('generates expected files', done => {
     helpers.run(__dirname)
-      .withArguments(['Name'])
+      .withArguments(['name'])
       .on('end', () => {
         const file = 'app/services/Name.js'
         assert.file(file)

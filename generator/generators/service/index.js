@@ -12,15 +12,15 @@ module.exports = yeoman.Base.extend({
     yeoman.Base.apply(this, args)
     this.argument('serviceName', {
       type: String,
-      filter: pascal,
       desc: serviceNamePromptTemplate,
     })
   },
   writing() {
+    const serviceName = pascal(this.serviceName)
     this.fs.copyTpl(
       this.templatePath('service.js'),
-      this.destinationPath(`app/services/${this.serviceName}.js`),
-      { serviceName: this.serviceName }
+      this.destinationPath(`app/services/${serviceName}.js`),
+      { serviceName }
     )
   },
 })
