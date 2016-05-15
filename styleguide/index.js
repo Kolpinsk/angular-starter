@@ -27,6 +27,7 @@ module.exports = ({ constants, componentsDir }) => {
       .then(componentsDocs => {
         res.render(view('styleguide.jade'), {
           components: componentsDocs,
+          baseUrl: req.baseUrl,
           constants,
         })
       })
@@ -48,6 +49,7 @@ module.exports = ({ constants, componentsDir }) => {
       .then(doc => {
         res.render(view('component.jade'), {
           component: req.params.component,
+          baseUrl: req.baseUrl,
           constants,
           doc,
         })
