@@ -1,0 +1,34 @@
+{
+  "name": "styleguide-as",
+  "version": "0.1.0",
+  "description": "Express middleware to create styleguide from markdown files",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "tdd": "npm test -- -w",
+    "test": "mocha test.js"
+  },
+  "keywords": [
+    "angular-starter",
+    "styleguide",
+    "styleguide-generator",
+    "markdown",
+    "express"
+  ],
+  "author": "Maxim Samoilov <nitive@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "fs-promise": "^0.5.0",
+    "jade": "^1.11.0",
+    "marked": "^0.3.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.10.1",
+    "eslint-config-as": "^0.1.4",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  }
+}
