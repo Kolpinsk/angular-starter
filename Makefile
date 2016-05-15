@@ -1,13 +1,9 @@
-# tests
-
-travis-test:
-	@ cd generator &&\
-	  npm install &&\
-	  npm test
-
 test:
-	@ cd generator && npm test;
-
-
+	@ cd generator &&\
+		if [ $CI ]; then npm install; fi &&\
+	  npm test &&\
+	  cd ../styleguide &&\
+		if [ $CI ]; then npm install; fi &&\
+	  npm test;
 
 .PHONY: test
