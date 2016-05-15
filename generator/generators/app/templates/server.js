@@ -1,6 +1,6 @@
 const express = require('express')
 const webpack = require('webpack')
-const ora = require('ora')
+const { findAPortNotInUse } = require('portscanner')
 const constants = require('./app/helpers/constants.json')
 require('colors')
 
@@ -19,4 +19,13 @@ app.use(require('webpack-hot-middleware')(compiler, { log: () => 1 }))
 app.use(express.static('build/', { index: false }))
 app.get('*', (req, res) => res.render('index.jade', constants))
 
-app.listen(3000)
+findAPortNotInUse(3000, 3010, 'localhost', (err, port) => {
+  if (err) console.error(err)
+  if (!port) console.error('Port not found')
+  app.server = app.listen(port, error => {
+    if (error) console.error(error)
+    console.log(`http://localhost:${port}`)
+  })
+})
+
+exports.app = app
