@@ -4,11 +4,16 @@
   "description": "Express middleware to create styleguide from markdown files",
   "main": "index.js",
   "scripts": {
+    "start": "node test-server.js",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "tdd": "npm test -- -w",
     "test": "mocha test.js"
   },
+  "files": [
+    "views/",
+    "index.js"
+  ],
   "keywords": [
     "angular-starter",
     "styleguide",

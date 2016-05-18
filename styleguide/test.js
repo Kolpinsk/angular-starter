@@ -1,8 +1,8 @@
 const path = require('path')
 const express = require('express')
 const request = require('supertest')
-const constants = require('./constants.json')
 const styleguideMiddleware = require('./')
+const constants = require('./constants.json')
 require('chai').should()
 
 
