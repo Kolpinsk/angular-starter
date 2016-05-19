@@ -1,7 +1,8 @@
+const R = require('ramda')
 const path = require('path')
 const fs = require('fs-promise')
-const express = require('express')
 const marked = require('marked')
+const express = require('express')
 
 
 const view = template => path.join(__dirname, 'views', template)
@@ -16,19 +17,23 @@ module.exports = ({ constants, componentsDir }) => {
     return fs.readFile(docPath, 'utf-8').then(marked)
   }
 
+  const resolve = baseUrl => (...pathes) => {
+    return path.join(baseUrl, ...pathes)
+  }
+
 
   styleguideMiddleware.use(express.static('node_modules/github-markdown-css'))
 
   styleguideMiddleware.get('/', (req, res) => {
     getComponentsNames()
       .then(components => {
-        return Promise.all(components.map(getComponentDoc))
+        return Promise.all([components, Promise.all(components.map(getComponentDoc))])
       })
-      .then(componentsDocs => {
+      .then(([components, componentsDocs]) => {
         res.render(view('styleguide.jade'), {
-          components: componentsDocs,
-          baseUrl: req.baseUrl,
+          components: R.zipWith((name, doc) => ({ name, doc }), components, componentsDocs),
           constants,
+          resolve: resolve(req.baseUrl),
         })
       })
   })
@@ -48,9 +53,9 @@ module.exports = ({ constants, componentsDir }) => {
       .then(getComponentDoc)
       .then(doc => {
         res.render(view('component.jade'), {
-          component: req.params.component,
-          baseUrl: req.baseUrl,
+          name: req.params.component,
           constants,
+          resolve: resolve(req.baseUrl),
           doc,
         })
       })

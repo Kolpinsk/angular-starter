@@ -15,5 +15,5 @@ app.listen(port, err => {
     console.log(err)
     return
   }
-  console.log(`http://localhost:${port}`)
+  console.log(`http://localhost:${port}/styleguide`)
 })

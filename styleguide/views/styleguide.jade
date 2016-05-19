@@ -1,7 +1,10 @@
+include mixins/component
+
 extends layout
 
 //- Warning: livereload does not work in this file
 block body
   .markdown-body
     for component in components
-      != component
+      +component(component.name)
+        != component.doc

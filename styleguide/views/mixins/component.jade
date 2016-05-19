@@ -1,0 +1,7 @@
+mixin component(name)
+  .component
+    h2.component__name
+      a(href=resolve(name))
+        = name
+    .component__doc
+      block

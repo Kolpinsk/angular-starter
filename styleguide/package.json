@@ -28,7 +28,8 @@
     "fs-promise": "^0.5.0",
     "github-markdown-css": "^2.3.0",
     "jade": "^1.11.0",
-    "marked": "^0.3.5"
+    "marked": "^0.3.5",
+    "ramda": "^0.21.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
