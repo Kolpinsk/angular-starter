@@ -3,6 +3,7 @@ const path = require('path')
 const fs = require('fs-promise')
 const marked = require('marked')
 const express = require('express')
+const postcss = require('postcss-middleware')
 
 
 const view = template => path.join(__dirname, 'views', template)
@@ -33,6 +34,19 @@ module.exports = ({ constants, componentsDir }) => {
   }
 
 
+  styleguideMiddleware.use('/styles', postcss({
+    src(req) {
+      return path.join('styles', req.path)
+    },
+    plugins: [
+      require('postcss-import')(),
+      require('precss')(),
+      require('postcss-cssnext')(),
+    ],
+    options: {
+      parser: require('sugarss'),
+    },
+  }))
   styleguideMiddleware.use(express.static('node_modules/github-markdown-css'))
 
   styleguideMiddleware.get('/', (req, res) => {

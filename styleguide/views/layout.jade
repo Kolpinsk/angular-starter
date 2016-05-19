@@ -4,14 +4,11 @@ html
     meta(charset='utf-8')
     title Styleguide
     link(rel='stylesheet' href=resolve('github-markdown.css'))
+    link(rel='stylesheet' href=resolve('/styles/main.sss'))
     block head
-    style.
-      .component-list {
-        background: red;
-      }
 
   body(ng-app=constants.APP_NAME ng-strict-di)
-    main.StyleguideAs_Wrapper
+    main.StyleguideAs
       aside.StyleguideAs_Sidebar
         header
           h1: a(href=resolve()) Styleguide

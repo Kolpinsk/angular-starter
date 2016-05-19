@@ -1,0 +1,14 @@
+@define-mixin reset
+  all: initial
+  font: inherit
+
+body
+  @mixin reset
+
+.StyleguideAs
+  font-family: Helvetica
+
+  &_Sidebar
+    @mixin reset
+    display: block;
+    background-color: green
