@@ -21,48 +21,48 @@ module.exports = ({ constants, componentsDir }) => {
     return path.join(baseUrl, ...pathes)
   }
 
-
-  styleguideMiddleware.use(express.static('node_modules/github-markdown-css'))
-
-  styleguideMiddleware.get('/', (req, res) => {
-    getComponentsNames()
+  const getComponentsData = () => {
+    return getComponentsNames()
       .then(components => {
         return Promise.all([components, Promise.all(components.map(getComponentDoc))])
       })
       .then(([components, componentsDocs]) => {
+        return R.zipWith((name, doc) => ({ name, doc }), components, componentsDocs)
+      })
+      .catch(console.error)
+  }
+
+
+  styleguideMiddleware.use(express.static('node_modules/github-markdown-css'))
+
+  styleguideMiddleware.get('/', (req, res) => {
+    getComponentsData()
+      .then(components => {
         res.render(view('styleguide.jade'), {
-          components: R.zipWith((name, doc) => ({ name, doc }), components, componentsDocs),
-          constants,
           resolve: resolve(req.baseUrl),
+          components,
+          constants,
         })
       })
   })
 
   styleguideMiddleware.get('/:component', (req, res) => {
-    getComponentsNames()
-      .then(dirs => {
-        if (dirs.includes(req.params.component)) {
-          return Promise.resolve(req.params.component)
+    getComponentsData()
+      .then(components => {
+        const findComponent = R.find(R.propEq('name', req.params.component))
+        const componentData = findComponent(components)
+        if (!componentData) {
+          return res.status(404).send('Component not found')
         }
-        return Promise.reject('Component not found')
-      })
-      .catch(err => {
-        res.status(404).send(err)
-        throw err
-      })
-      .then(getComponentDoc)
-      .then(doc => {
-        res.render(view('component.jade'), {
-          name: req.params.component,
-          constants,
+        return res.render(view('component.jade'), {
           resolve: resolve(req.baseUrl),
-          doc,
+          name: req.params.component,
+          doc: componentData.doc,
+          components,
+          constants,
         })
       })
-      .catch(err => {
-        console.error(err)
-        res.status(500).send(err)
-      })
+      .catch(console.error)
   })
 
   return styleguideMiddleware

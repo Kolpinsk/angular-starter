@@ -5,8 +5,24 @@ html
     title Styleguide
     link(rel='stylesheet' href=resolve('github-markdown.css'))
     block head
+    style.
+      .component-list {
+        background: red;
+      }
 
-  //- Warning: livereload does not work in this file
   body(ng-app=constants.APP_NAME ng-strict-di)
-    block body
+    main.StyleguideAs_Wrapper
+      aside.StyleguideAs_Sidebar
+        header
+          h1: a(href=resolve()) Styleguide
+
+        .StyleguideAs_TableOfContents
+          input(type='search')
+          ul.StyleguideAs_TableOfContents__list
+            for component in components
+              li
+                a(href=resolve(component.name))
+                  = component.name
+
+      block body
     script(src='/app.js?t=' + Date.now())

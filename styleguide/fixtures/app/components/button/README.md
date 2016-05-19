@@ -5,4 +5,5 @@
 ```
 <ctm-button>Button</ctm-button>
 ```
+<ctm-button>Button</ctm-button>
 
