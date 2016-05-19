@@ -10,16 +10,16 @@ html
   body(ng-app=constants.APP_NAME ng-strict-di)
     main.StyleguideAs
       aside.StyleguideAs_Sidebar
-        header
-          h1: a(href=resolve()) Styleguide
+        header.StyleguideAs_Sidebar__Header
+          h1.StyleguideAs_Sidebar__Heading
+            a.StyleguideAs_Sidebar__HeadingLink(href=resolve()) StyleguideAs
 
-        .StyleguideAs_TableOfContents
-          input(type='search')
-          ul.StyleguideAs_TableOfContents__list
-            for component in components
-              li
-                a(href=resolve(component.name))
-                  = component.name
+        ul.StyleguideAs_TableOfContents
+          for component in components
+            li.StyleguideAs_TableOfContents__Item
+              a.StyleguideAs_TableOfContents__Link(href=resolve(component.name))
+                = component.name
 
-      block body
+      div.StyleguideAs_Content
+        block body
     script(src='/app.js?t=' + Date.now())
