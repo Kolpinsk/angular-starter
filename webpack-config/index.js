@@ -119,6 +119,7 @@ module.exports = opts => {
         require('precss')(),
         require('postcss-define-property'),
         require('postcss-cssnext')(),
+        require('rucksack-css')(),
       ],
       parser: require('sugarss'),
     }),
