@@ -9,6 +9,10 @@
     "tdd": "npm test -- --watch",
     "test": "mocha -r mocha-clean generators/*/test.js"
   },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "files": [
     "generators",
     "README.md"

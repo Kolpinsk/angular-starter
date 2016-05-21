@@ -10,6 +10,10 @@
     "tdd": "npm test -- -w",
     "test": "mocha test.js"
   },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "files": [
     "views/",
     "index.js"

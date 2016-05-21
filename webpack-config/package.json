@@ -6,6 +6,10 @@
   "scripts": {
     "test": "eslint ."
   },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "author": "Maxim Samoilov <nitive@icloud.com>",
   "license": "MIT",
   "devDependencies": {
