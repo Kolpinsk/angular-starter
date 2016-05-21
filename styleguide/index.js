@@ -3,7 +3,7 @@ const path = require('path')
 const fs = require('fs-promise')
 const marked = require('marked')
 const express = require('express')
-const postcss = require('postcss-middleware')
+const postcss = require('postcss-middleware').default
 
 
 const view = template => path.join(__dirname, 'views', template)
