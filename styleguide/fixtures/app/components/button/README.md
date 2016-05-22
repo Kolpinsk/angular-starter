@@ -2,8 +2,7 @@
 1. two
 
 
+```js
+<as-button>Button</as-button>
 ```
-<ctm-button>Button</ctm-button>
-```
-<ctm-button>Button</ctm-button>
 
