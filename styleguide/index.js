@@ -36,7 +36,7 @@ module.exports = ({ constants, componentsDir }) => {
 
   styleguideMiddleware.use('/styles', postcss({
     src(req) {
-      return path.join('styles', req.path)
+      return path.join(__dirname, 'styles', req.path)
     },
     plugins: [
       require('postcss-import')(),
