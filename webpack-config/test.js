@@ -56,7 +56,7 @@ describe('posthtml transformer', () => {
   it('should be a function', () => {
     transformers.posthtml({
       posthtml: {
-        plugins: {
+        defaults: {
           bem: 'bem',
         },
       },
@@ -66,25 +66,25 @@ describe('posthtml transformer', () => {
   it('should tranform posthtml options', () => {
     transformers.posthtml({
       posthtml: {
-        plugins: {
+        pack: {
           bem: 'bem',
         },
       },
     }).posthtml().should.be.deep.equal({
-      plugins: ['bem'],
+      pack: ['bem'],
     })
   })
 
   it('should allow disable plugins', () => {
     transformers.posthtml({
       posthtml: {
-        plugins: {
+        defaults: {
           jade: 'jade',
           disable: false,
         },
       },
     }).posthtml().should.be.deep.equal({
-      plugins: ['jade'],
+      defaults: ['jade'],
     })
   })
 })

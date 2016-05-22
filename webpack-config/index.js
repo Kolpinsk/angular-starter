@@ -26,7 +26,14 @@ const pluginsTranformer = name => config => {
 
 const transformers = exports.transformers = {
   postcss: pluginsTranformer('postcss'),
-  posthtml: pluginsTranformer('posthtml'),
+  posthtml(config) {
+    if (typeof config.posthtml !== 'object') return config
+
+    const resultFunc = () => {
+      return R.map(R.compose(clear, R.values), config.posthtml)
+    }
+    return R.assoc('posthtml', resultFunc, config)
+  },
 }
 
 
@@ -94,7 +101,7 @@ const preset = exports.preset = {
     parser: require('sugarss'),
   },
   posthtml: {
-    plugins: {
+    defaults: {
       'posthtml-jade': require('posthtml-jade')(),
     },
   },
