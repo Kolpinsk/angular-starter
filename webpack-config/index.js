@@ -2,131 +2,130 @@
 // for posthtml/postcss plugins
 /* eslint-disable global-require */
 
-const webpack = require('webpack')
 const R = require('ramda')
-
-const preLoaders = [{
-  test: /\.js$/,
-  loader: 'source-map-loader',
-}]
-
-const isDebug = process.env.NODE_ENV === 'development'
-
-const commonLoaders = [{
-  test: /\.js$/,
-  loaders: ['babel'],
-  exclude: /node_modules/,
-}, {
-  test: /\.js$/,
-  loader: 'eslint',
-  exclude: /node_modules/,
-}, {
-  test: /\.json$/,
-  loaders: ['json'],
-}, {
-  test: /\.sss$/,
-  loaders: ['style', 'css', 'postcss'],
-}, {
-  test: /\.jade$/,
-  loaders: ['html', 'posthtml'],
-}, {
-  test: /\.svg$/,
-  loaders: ['svg-inline?removeSVGTagAttrs=false', 'svgo'],
-}, {
-  test: /\.(jpg|png|gif)$/,
-  loaders: ['file'],
-}]
+const webpack = require('webpack')
+const wpk = require('wpk-manager')
 
 
-const getPlugins = options => {
-  return R.concat(
-    options.plugins || [],
-    options.debug ? options.devPlugins || [] : options.prodPlugins || []
-  )
+
+const envs = R.mapObjIndexed(JSON.stringify, process.env)
+const definePlugin = new webpack.DefinePlugin({
+  'process.env': envs,
+})
+
+const pluginsTranformer = name => config => {
+  if (typeof config[name] !== 'object') return config
+
+  const plugins = R.values(config[name].plugins || {})
+  const resultFunc = () => {
+    return R.assoc('plugins', plugins, config[name])
+  }
+  return R.assoc(name, resultFunc, config)
+}
+
+const transformers = exports.transformers = {
+  postcss: pluginsTranformer('postcss'),
+  posthtml: pluginsTranformer('posthtml'),
 }
 
 
 
-// const checkOptionsIsCorrect = options => {
-//   if (!options.projectDirectory) {
-//     throw new Error([
-//       'You must specify option projectDirectory',
-//       'which contains absolute path to your project folder.',
-//       'Use path.join(__dirname, \'./relative/path/to/project/root\'',
-//       'to specify it.',
-//     ].join(' '))
-//   }
-// }
 
+const preset = exports.preset = {
+  // Report the first error as a hard error instead of tolerating it.
+  bail: false,
 
+  // Capture timing information for each module.
+  profile: true,
 
-/**
- * @required {String} projectDirectory - absolute path to project
- * @optional {Array} plugins
- * @optional {Array} devPlugins
- * @optional {Array} prodPlugins
- * To set debug mode use NODE_ENV=development
- */
-
-module.exports = opts => {
-  opts = opts || {} // eslint-disable-line no-param-reassign
-  // checkOptionsIsCorrect(opts)
-  const envs = R.mapObjIndexed(JSON.stringify, process.env)
-  const definePlugin = new webpack.DefinePlugin({
-    'process.env': envs,
-  })
-
-  const plugins = getPlugins({
-    debug: isDebug,
-
-    plugins: [
-      definePlugin,
-    ].concat(opts.plugins || []),
-
-    devPlugins: [
-      new webpack.HotModuleReplacementPlugin(),
-    ].concat(opts.devPlugins || []),
-
-    prodPlugins: [
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
-    ].concat(opts.prodPlugins || []),
-  })
-
-  return {
-    // Report the first error as a hard error instead of tolerating it.
-    bail: false,
-
-    // Capture timing information for each module.
-    profile: true,
-
-    module: {
-      preLoaders,
-      loaders: commonLoaders,
+  module: {
+    preLoaders: {
+      'source-map': {
+        test: /\.js$/,
+        loader: 'source-map',
+      },
     },
+    loaders: {
+      babel: {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+      },
+      eslint: {
+        test: /\.js$/,
+        loader: 'eslint',
+        exclude: /node_modules/,
+      },
+      json: {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      style: {
+        test: /\.sss$/,
+        loaders: ['style', 'css', 'postcss'],
+      },
+      jade: {
+        test: /\.jade$/,
+        loaders: ['html', 'posthtml'],
+      },
+      svg: {
+        test: /\.svg$/,
+        loaders: ['svg-inline?removeSVGTagAttrs=false', 'svgo'],
+      },
+      images: {
+        test: /\.(jpg|png|gif)$/,
+        loader: 'file',
+      },
+    },
+  },
 
-    // Each module is executed with eval and //@ sourceURL.
-    // The fastest choice
-    devtool: isDebug ? 'eval' : 'source-map',
+  plugins: {
+    define: definePlugin,
+  },
+  postcss: {
+    plugins: {
+      'postcss-import': require('postcss-import')({ addDependencyTo: webpack }),
+      precss: require('precss')(),
+      'postcss-define-property': require('postcss-define-property'),
+      'postcss-cssnext': require('postcss-cssnext')(),
+      'rucksack-css': require('rucksack-css')(),
+    },
+    parser: require('sugarss'),
+  },
+  posthtml: {
+    plugins: {
+      'posthtml-jade': require('posthtml-jade')(),
+    },
+  },
+  profiles: {
+    dev: {
+      // Each module is executed with eval and //@ sourceURL.
+      // The fastest choice
+      devtool: 'eval',
+      // Switch loaders to debug mode.
+      debug: true,
+      plugins: {
+        hotModuleReplacement: new webpack.HotModuleReplacementPlugin(),
+      },
+    },
+    prod: {
+      devtool: 'source-map',
+      plugins: {
+        dedupe: new webpack.optimize.DedupePlugin(),
+        uglifyJs: new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+      },
+    },
+  },
+}
 
-    // Switch loaders to debug mode.
-    debug: isDebug,
+// const result = wpk.extend(preset, { profile: 'dev' })
 
-    plugins,
-    postcss: () => ({
-      defaults: [
-        require('postcss-import')({ addDependencyTo: webpack }),
-        require('precss')(),
-        require('postcss-define-property'),
-        require('postcss-cssnext')(),
-        require('rucksack-css')(),
-      ],
-      parser: require('sugarss'),
-    }),
-    posthtml: () => ({
-      defaults: [
-        require('posthtml-jade')(),
-      ],
-    }),
-  }
+exports.extend = (...args) => {
+  const configs = args.slice(0, -1)
+  const options = args.slice(-1)[0]
+  options.transformers = R.concat(
+    options.transformers || [],
+    R.values(transformers)
+  )
+  return wpk.extend(preset, ...configs, options)
 }
