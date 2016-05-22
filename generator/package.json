@@ -1,6 +1,6 @@
 {
   "name": "generator-as",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Generator to fast start project with angular, webpack, postcss+sugarss, babel, eslint",
   "scripts": {
     "lint": "eslint .",
