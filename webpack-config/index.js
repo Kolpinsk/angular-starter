@@ -7,6 +7,7 @@ const webpack = require('webpack')
 const wpk = require('wpk-manager')
 
 
+const clear = R.filter(R.identity)
 
 const envs = R.mapObjIndexed(JSON.stringify, process.env)
 const definePlugin = new webpack.DefinePlugin({
@@ -16,7 +17,7 @@ const definePlugin = new webpack.DefinePlugin({
 const pluginsTranformer = name => config => {
   if (typeof config[name] !== 'object') return config
 
-  const plugins = R.values(config[name].plugins || {})
+  const plugins = clear(R.values(config[name].plugins || {}))
   const resultFunc = () => {
     return R.assoc('plugins', plugins, config[name])
   }

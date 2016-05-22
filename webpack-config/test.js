@@ -20,6 +20,19 @@ describe('postcss transformer', () => {
     })
   })
 
+  it('should allow disable plugins', () => {
+    transformers.postcss({
+      postcss: {
+        plugins: {
+          cssnext: 'postcss-cssnext',
+          disable: false,
+        },
+      },
+    }).postcss().should.be.deep.equal({
+      plugins: ['postcss-cssnext'],
+    })
+  })
+
   // Order is saved if all keys not numbers or numbers as string
   // More info (Russian):
   // https://learn.javascript.ru/object-for-in#в-каком-порядке-перебираются-свойства
@@ -59,6 +72,19 @@ describe('posthtml transformer', () => {
       },
     }).posthtml().should.be.deep.equal({
       plugins: ['bem'],
+    })
+  })
+
+  it('should allow disable plugins', () => {
+    transformers.posthtml({
+      posthtml: {
+        plugins: {
+          jade: 'jade',
+          disable: false,
+        },
+      },
+    }).posthtml().should.be.deep.equal({
+      plugins: ['jade'],
     })
   })
 })
