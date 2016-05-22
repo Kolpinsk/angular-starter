@@ -4,7 +4,8 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-as using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-as using [npm](https://www.npmjs.com/)
+(You **must** use **[Node.js](https://nodejs.org/) v6**).
 
 ```bash
 npm install -g generator-as yo
@@ -18,12 +19,15 @@ yo as project-name
 
 
 ## Modern stack
-TODO
-Node v6 required
+This boilerplate use this technologies:
 
+- Node.js v6 (You **must** use **v6**)
+- Webpack
+- PostCSS
+- Angular
+- Babel
+- Eslint
 
-## All-in-JS
-TODO
 
 
 ## PostCSS
@@ -32,12 +36,11 @@ There are indert-base [SugarSS][sugarss-url] syntax in this boilerplate.
 It is used [precss][precss-url] and [postcss-cssnext][postcss-cssnext-url] to process CSS.  
 It is used to lint and autoformat CSS by [stylelint][stylelint-url] and [stylefmt][stylefmt-url].
 
+
 ## Styleguide generator
-TODO
-
-
-## Hot module replacement
-Maybe it is possible I should try to implement it.
+It is generated styleguide for components from `README.md` files.
+See `/styleguide` page in your application.
+![styleguide screenshot](http://s.csssr.ru/2016-05-22-2056-xjinitj4jj.png)
 
 
 ## Yeoman generator
@@ -76,7 +79,19 @@ yo as:service [SERVICE]
 
 
 ## Separate modules for configs
-TODO
+Important part of the boilerplate all configs are splitted to modules.
+So they can update automatically by running `npm update`.
+For extending webpack config used special [wpk-manager](https://github.com/Nitive/wpk-manager) syntax.
+
+
+## Best practies
+#### Use components
+Avoid using jade mixins, use angular components instead.
+Angular components more flexible and reusable.
+
+#### Use local reset
+Use local css reset by `all: initial` in css.
+It helps share code between projects.
 
 
 ## Recommended tools
@@ -85,6 +100,8 @@ TODO
 
 - [EditorConfig](http://editorconfig.org) 🌕
 - [Eslint integration for your editor](http://eslint.org/docs/user-guide/integrations#editors) 🌗
+- [Babel](http://babeljs.io) 🌗
+- Local css reset by `all: initial` 🌘
 
 
 ## License
