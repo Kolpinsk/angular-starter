@@ -34,7 +34,7 @@ This boilerplate use this technologies:
 [PostCSS][postcss-url] is great tool to work with CSS.  
 There are indert-base [SugarSS][sugarss-url] syntax in this boilerplate.  
 It is used [precss][precss-url] and [postcss-cssnext][postcss-cssnext-url] to process CSS.  
-It is used to lint and autoformat CSS by [stylelint][stylelint-url] and [stylefmt][stylefmt-url].
+It is used to lint CSS by [stylelint][stylelint-url].
 
 
 ## Styleguide generator
@@ -117,5 +117,4 @@ MIT © [Maxim Samoilov](https://twitter.com/_nitive)
 [precss-url]: https://github.com/jonathantneal/precss
 [postcss-cssnext-url]: http://cssnext.io
 [stylelint-url]: https://github.com/stylelint/stylelint
-[stylefmt-url]: https://github.com/morishitter/stylefmt
 [sugarss-url]: https://github.com/postcss/sugarss
