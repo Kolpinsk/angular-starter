@@ -1,0 +1,24 @@
+{
+  "name": "stylelint-config-as",
+  "version": "0.1.0",
+  "description": "Stylelint config from angular-starter boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "keywords": [
+    "stylelint",
+    "postcss",
+    "lint",
+    "css"
+  ],
+  "author": "Maxim Samoilov <nitive@icloud.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^2.4.0",
+    "eslint-config-as": "^0.1.5"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "^8.0.0"
+  }
+}
