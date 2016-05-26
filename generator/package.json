@@ -51,7 +51,13 @@
     "yeoman-assert": "^2.2.1",
     "yeoman-test": "^1.4.0"
   },
-  "homepage": "github.com/Nitive/angular-starter",
-  "repository": "Nitive/generator-angular-starter",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nitive/angular-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nitive/angular-starter/issues"
+  },
+  "homepage": "https://github.com/Nitive/angular-starter#readme"
 }

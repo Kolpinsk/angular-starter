@@ -14,6 +14,14 @@
   ],
   "author": "Maxim Samoilov <nitive@icloud.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nitive/angular-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nitive/angular-starter/issues"
+  },
+  "homepage": "https://github.com/Nitive/angular-starter#readme",
   "devDependencies": {
     "eslint": "^2.4.0",
     "eslint-config-as": "^0.1.5"
