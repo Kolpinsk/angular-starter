@@ -202,5 +202,33 @@ module.exports = {
     'property-no-vendor-prefix': true,
     'selector-no-vendor-prefix': true,
     'value-no-vendor-prefix': true,
+
+    // control specificity
+    'max-nesting-depth': 3,
+    'selector-max-compound-selectors': 3,
+    'selector-max-specificity': '0,3,0',
+
+    // acceptable selector types, units, properties, functions and words in comments
+
+    'color-named': 'always-where-possible',
+    'comment-word-blacklist': ['TODO', 'FIXME'],
+    'declaration-no-important': true,
+    'selector-no-qualifying-type': true,
+    'selector-no-type': true,
+    'selector-no-universal': true,
+
+    // a notation when there are one or more valid representations
+    'font-weight-notation': 'named-where-possible',
+
+    // the acceptable use of custom properties
+    'custom-property-no-outside-root': true,
+    'selector-root-no-composition': true,
+
+    // if Data URIs must or must not be used
+    // use webpack
+    'function-url-data-uris': 'never',
+
+    // a maximum line length
+    'max-line-length': 120,
   },
 }
