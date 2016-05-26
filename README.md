@@ -84,7 +84,7 @@ So they can update automatically by running `npm update`.
 For extending webpack config used special [wpk-manager](https://github.com/Nitive/wpk-manager) syntax.
 
 
-## Best practies
+## Best practices
 #### Use components
 Avoid using jade mixins, use angular components instead.
 Angular components more flexible and reusable.
@@ -100,6 +100,7 @@ It helps share code between projects.
 
 - [EditorConfig](http://editorconfig.org) 🌕
 - [Eslint integration for your editor](http://eslint.org/docs/user-guide/integrations#editors) 🌗
+- [Stylelint integration for your editor](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/complementary-tools.md#editor-plugins) 🌗
 - [Babel](http://babeljs.io) 🌗
 - Local css reset by `all: initial` 🌘
 
