@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-as",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Stylelint config from angular-starter boilerplate",
   "main": "index.js",
   "scripts": {
