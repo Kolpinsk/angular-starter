@@ -24,6 +24,7 @@ describe('app', () => {
           '.editorconfig',
           '.eslintrc.yml',
           '.gitignore',
+          '.stylelintrc',
           'package.json',
           'README.md',
           'server.js',

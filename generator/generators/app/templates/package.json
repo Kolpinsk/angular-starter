@@ -20,6 +20,8 @@
     "express": "^4.13.4",
     "npm-run-all": "^1.8.0",
     "portscanner": "^1.0.0",
+    "stylelint": "^6.5.1",
+    "stylelint-config-as": "^0.1.2",
     "webpack": "^1.13.0",
     "webpack-config-as": "^0.2.0",
     "webpack-dev-middleware": "github:nitive/webpack-dev-middleware#reporter-option",

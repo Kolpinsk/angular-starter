@@ -108,6 +108,7 @@ module.exports = yeoman.Base.extend({
       '.editorconfig',
       '.eslintrc.yml',
       '.gitignore',
+      '.stylelintrc',
       'package.json',
       'README.md',
       'server.js',
