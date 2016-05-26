@@ -187,6 +187,7 @@ module.exports = {
   rules: {
     // disable for sugarss
     'declaration-block-trailing-semicolon': null,
+    'block-opening-brace-space-before': null,
 
     // what quotes must be used
     'font-family-name-quotes': 'always-where-recommended',
