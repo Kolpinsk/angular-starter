@@ -21,6 +21,7 @@
     "case": "^1.4.1",
     "cross-env": "^1.0.7",
     "eslint-config-as": "^0.1.4",
+    "eslint-plugin-import": "^1.8.1",
     "express": "^4.13.4",
     "npm-run-all": "^1.8.0",
     "portscanner": "^1.0.0",
