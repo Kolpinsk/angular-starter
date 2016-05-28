@@ -1,11 +1,11 @@
 const path = require('path')
 const express = require('express')
-const styleguideMiddleware = require('./')
+const styleguideMiddleware = require('../')
 const constants = require('./constants.json')
 
 const app = express()
 app.use('/styleguide', styleguideMiddleware({
-  componentsDir: path.join(__dirname, 'fixtures/app/components'),
+  componentsDir: path.join(__dirname, '../fixtures/app/components'),
   constants,
 }))
 

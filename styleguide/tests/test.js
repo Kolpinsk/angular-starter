@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express')
 const request = require('supertest')
-const styleguideMiddleware = require('./')
+const styleguideMiddleware = require('../')
 const constants = require('./constants.json')
 require('chai').should()
 
@@ -11,7 +11,7 @@ describe('GET /styleguide', function () {
   beforeEach(() => {
     this.app = express()
     this.app.use('/styleguide', styleguideMiddleware({
-      componentsDir: path.join(__dirname, 'fixtures/app/components'),
+      componentsDir: path.join(__dirname, '../fixtures/app/components'),
       constants,
     }))
     this.server = this.app.listen(6918) // random free port

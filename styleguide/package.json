@@ -4,11 +4,11 @@
   "description": "Express middleware to create styleguide from markdown files",
   "main": "index.js",
   "scripts": {
-    "start": "node test-server.js",
+    "start": "node tests/test-server.js",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "tdd": "npm test -- -w",
-    "test": "mocha test.js"
+    "test": "mocha tests/test.js"
   },
   "engines": {
     "node": ">=6",
