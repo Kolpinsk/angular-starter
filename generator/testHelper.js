@@ -46,7 +46,7 @@ const eslint = new CLIEngine(R.merge(eslintConfig, {
 exports.eslintCheck = (context, files) => {
   if (!context || R.equals(context, {})) {
     throw new Error(
-      'Wrong context. Check you pass `this` as first' +
+      'Wrong context. Check you pass `this` as first ' +
       'argument and parent function is not arrow function.'
     )
   }
