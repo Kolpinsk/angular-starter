@@ -3,11 +3,11 @@
   "version": "0.1.4",
   "description": "Generator to fast start project with angular, webpack, postcss+sugarss, babel, eslint",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint lib/",
     "pretest": "npm run lint",
     "prepublish": "npm test",
     "tdd": "npm test -- --watch",
-    "test": "mocha -r mocha-clean generators/*/test.js"
+    "test": "mocha -r mocha-clean lib/generators/*/test.js"
   },
   "engines": {
     "node": ">=6",
