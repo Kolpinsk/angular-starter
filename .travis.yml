@@ -3,6 +3,8 @@ language: node_js
 node_js:
   - v6
   - v5
+  - v4
+  - v0.12
 
 before_install:
   - npm i -g npm@^2.0.0
