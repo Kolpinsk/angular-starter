@@ -5,7 +5,7 @@
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-as using [npm](https://www.npmjs.com/)
-(You **must** use **[Node.js](https://nodejs.org/) v6**).
+(You **must** use **[Node.js](https://nodejs.org/) v4+**).
 
 ```bash
 npm install -g generator-as yo
@@ -21,7 +21,7 @@ yo as project-name
 ## Modern stack
 This boilerplate use this technologies:
 
-- Node.js v6 (You **must** use **v6**)
+- Node.js v6 (You **must** use **v4+**)
 - Webpack
 - PostCSS
 - Angular
