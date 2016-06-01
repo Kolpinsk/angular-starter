@@ -1,5 +1,5 @@
 require('chai').should()
-const { transformers } = require('./')
+const transformers = require('./').transformers
 
 describe('postcss transformer', () => {
   it('should be a function', () => {
