@@ -30,7 +30,9 @@ module.exports = options => {
       .then(components => {
         return Promise.all([components, Promise.all(components.map(getComponentDoc))])
       })
-      .then(([components, componentsDocs]) => {
+      .then(args => {
+        const components = args[0]
+        const componentsDocs = args[1]
         return R.zipWith((name, doc) => ({ name, doc }), components, componentsDocs)
       })
       .catch(console.error)
