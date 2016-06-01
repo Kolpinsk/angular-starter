@@ -18,8 +18,9 @@ module.exports = ({ constants, componentsDir }) => {
     return fs.readFile(docPath, 'utf-8').then(marked)
   }
 
-  const resolve = baseUrl => () => {
-    return R.apply(path.join, R.concat(baseUrl, arguments))
+  const resolve = baseUrl => function () {
+    const args = Array.from(arguments)
+    return R.apply(path.join, R.insert(0, baseUrl, args))
   }
 
   const getComponentsData = () => {
