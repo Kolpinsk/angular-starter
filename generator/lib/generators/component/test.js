@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const { runGeneratorInApp, eslintCheck } = require('../../testHelper')
+const h = require('../../testHelper')
 require('chai').should()
 
 const p = file => `app/components/${file}`
@@ -18,7 +18,7 @@ describe('component', () => {
           'component/README.md',
         ].map(p)
         assert.file(files)
-        eslintCheck(this, files)
+        h.eslintCheck(this, files)
         done()
       })
     .on('error', done)
@@ -26,7 +26,7 @@ describe('component', () => {
 
 
   it('generates index.js right', done => {
-    runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
+    h.runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
       .withArguments(['component'])
       .on('end', () => {
         assert.fileContent([
@@ -40,7 +40,7 @@ describe('component', () => {
 
 
   it('generates README.md right', done => {
-    runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
+    h.runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
       .withArguments(['component'])
       .on('end', () => {
         assert.fileContent([
@@ -53,7 +53,7 @@ describe('component', () => {
 
 
   it('generates template.jade right', done => {
-    runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
+    h.runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
       .withArguments(['componentName'])
       .on('end', () => {
         assert.fileContent([
@@ -66,7 +66,7 @@ describe('component', () => {
 
 
   it('generates styles.sss right', done => {
-    runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
+    h.runGeneratorInApp(__dirname, { prompts: { prefix: 'app' } })
       .withArguments(['componentName'])
       .on('end', () => {
         assert.fileContent([

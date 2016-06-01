@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const { eslintCheck } = require('../../testHelper')
+const h = require('../../testHelper')
 require('chai').should()
 
 
@@ -42,7 +42,7 @@ describe('app', () => {
           'views/index.jade',
         ]
         assert.file(files)
-        eslintCheck(this, files)
+        h.eslintCheck(this, files)
         done()
       })
     .on('error', done)

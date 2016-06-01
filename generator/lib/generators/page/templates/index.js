@@ -5,7 +5,7 @@ import './style.sss'
 export default route('<%= pageName %>', {
   url: '/',
   template,
-  controller: [function <%= pascal(pageName) %>Controller() {
+  controller: [function <%= Case.pascal(pageName) %>Controller() {
     console.log('<%= pageName %> page')
   }],
 })

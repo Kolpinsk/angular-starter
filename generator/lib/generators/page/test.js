@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const { runGeneratorInApp } = require('../../testHelper')
+const h = require('../../testHelper')
 require('chai').should()
 
 const p = file => `app/pages/${file}`
@@ -23,7 +23,7 @@ describe('page', () => {
 
 
   it('generates index.js right', done => {
-    runGeneratorInApp(__dirname)
+    h.runGeneratorInApp(__dirname)
       .withArguments(['page'])
       .on('end', () => {
         assert.fileContent([
@@ -37,7 +37,7 @@ describe('page', () => {
 
 
   it('generates template.jade right', done => {
-    runGeneratorInApp(__dirname)
+    h.runGeneratorInApp(__dirname)
       .withArguments(['pageName'])
       .on('end', () => {
         assert.fileContent([
@@ -50,7 +50,7 @@ describe('page', () => {
 
 
   it('generates styles.sss right', done => {
-    runGeneratorInApp(__dirname)
+    h.runGeneratorInApp(__dirname)
       .withArguments(['pageName'])
       .on('end', () => {
         assert.fileContent([

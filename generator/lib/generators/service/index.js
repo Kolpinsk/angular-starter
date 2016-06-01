@@ -1,4 +1,4 @@
-const { pascal } = require('case')
+const Case = require('case')
 const yeoman = require('yeoman-generator')
 require('colors')
 
@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
     })
   },
   writing() {
-    const serviceName = pascal(this.serviceName)
+    const serviceName = Case.pascal(this.serviceName)
     this.fs.copyTpl(
       this.templatePath('service.js'),
       this.destinationPath(`app/services/${serviceName}.js`),

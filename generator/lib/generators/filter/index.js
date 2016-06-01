@@ -1,4 +1,4 @@
-const { kebab } = require('case')
+const Case = require('case')
 const yeoman = require('yeoman-generator')
 require('colors')
 
@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
     })
   },
   writing() {
-    const filterName = kebab(this.filterName)
+    const filterName = Case.kebab(this.filterName)
     this.fs.copyTpl(
       this.templatePath('filter.js'),
       this.destinationPath(`app/filters/${filterName}.js`),

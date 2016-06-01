@@ -12,13 +12,17 @@ exports.mockPrompts = {
   email: 'max@company.com',
 }
 
-exports.runGeneratorInApp = (pathToGenerator, { prompts } = {}) => {
+exports.runGeneratorInApp = (pathToGenerator, opts) => {
+  const options = R.merge({
+    prompts: {},
+  }, opts || {})
+
   return helpers.run(pathToGenerator)
     .inTmpDir(function () { // eslint-disable-line
       const done = this.async()
       helpers
         .run(path.join(__dirname, 'generators/app'))
-        .withPrompts(R.merge(exports.mockPrompts, prompts || {}))
+        .withPrompts(R.merge(exports.mockPrompts, options.prompts || {}))
         .on('end', done)
     })
 }
@@ -36,7 +40,7 @@ exports.getConstants = self => {
 
 const isJsFile = file => /\.js$/.test(file)
 
-const { CLIEngine } = require('eslint')
+const CLIEngine = require('eslint').CLIEngine
 const eslintConfig = require('eslint-config-as')
 const eslint = new CLIEngine(R.merge(eslintConfig, {
   useEslintrc: false,

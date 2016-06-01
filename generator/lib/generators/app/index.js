@@ -4,7 +4,7 @@ const yosay = require('yosay')
 const ifEmpty = require('if-empty')
 const mkdirp = require('mkdirp')
 const splitKeywords = require('split-keywords')
-const { kebab } = require('case')
+const Case = require('case')
 require('colors')
 
 const rejectNil = R.reject(R.isNil)
@@ -47,8 +47,8 @@ module.exports = yeoman.Base.extend({
     }, {
       name: 'appName',
       message: 'Ⓐ application name:',
-      default: kebab(this.name || this.appname),
-      filter: kebab,
+      default: Case.kebab(this.name || this.appname),
+      filter: Case.kebab,
     }, {
       name: 'prefix',
       message: 'Ⓐ prefix for directives:',

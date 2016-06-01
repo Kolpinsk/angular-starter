@@ -1,7 +1,7 @@
 const path = require('path')
-const { camel, pascal, kebab } = require('case')
+const Case = require('case')
 const yeoman = require('yeoman-generator')
-const { getConstants, eslintCheck } = require('../../testHelper')
+const h = require('../../testHelper')
 
 const pageNamePromptTemplate = `
 Angular page’s name: "$ yo as:page index";
@@ -17,8 +17,8 @@ module.exports = yeoman.Base.extend({
     })
   },
   writing() {
-    const pageName = camel(this.pageName)
-    const constants = getConstants(this)
+    const pageName = Case.camel(this.pageName)
+    const constants = h.getConstants(this)
     const create = (template, dest) => {
       if (dest === undefined) {
         dest = template // eslint-disable-line
@@ -26,7 +26,7 @@ module.exports = yeoman.Base.extend({
       this.fs.copyTpl(
         this.templatePath(template),
         this.destinationPath(path.join(`app/pages/${pageName}/`, dest)),
-        { pageName, pascal, kebab, constants }
+        { pageName, Case, constants }
       )
     }
     const files = [
@@ -35,6 +35,6 @@ module.exports = yeoman.Base.extend({
       'style.sss',
     ]
     files.forEach(file => create(file))
-    eslintCheck(this, files)
+    h.eslintCheck(this, files)
   },
 })

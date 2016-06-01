@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const { eslintCheck } = require('../../testHelper')
+const h = require('../../testHelper')
 require('chai').should()
 
 
@@ -13,7 +13,7 @@ describe('service', () => {
         const file = 'app/services/Name.js'
         assert.file(file)
         assert.fileContent(file, 'factory(\'NameService\', ')
-        eslintCheck(this, [file])
+        h.eslintCheck(this, [file])
         done()
       })
     .on('error', done)

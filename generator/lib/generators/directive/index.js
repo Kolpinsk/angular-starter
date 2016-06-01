@@ -1,4 +1,4 @@
-const { kebab } = require('case')
+const Case = require('case')
 const yeoman = require('yeoman-generator')
 require('colors')
 
@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
     })
   },
   writing() {
-    const directiveName = kebab(this.directiveName)
+    const directiveName = Case.kebab(this.directiveName)
     this.fs.copyTpl(
       this.templatePath('directive.js'),
       this.destinationPath(`app/directives/${directiveName}.js`),

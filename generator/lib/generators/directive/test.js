@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const { eslintCheck } = require('../../testHelper')
+const h = require('../../testHelper')
 require('chai').should()
 
 
@@ -12,7 +12,7 @@ describe('directive', () => {
       .on('end', function () {
         const file = 'app/directives/auto-focus.js'
         assert.file(file)
-        eslintCheck(this, [file])
+        h.eslintCheck(this, [file])
         assert.fileContent(file, 'directive(\'auto-focus\', ')
         done()
       })

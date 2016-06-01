@@ -8,7 +8,7 @@ export default component('<%= componentName %>', [/* dependencies */], {
     // oneWayBinding: '<',
     // twoWayBindingOptional: '=?',
   },
-  controller: [function <%= pascal(componentName) %>Controller() {
+  controller: [function <%= Case.pascal(componentName) %>Controller() {
     // write your controller here
     // assign properties to this
     // and use it inside template as $ctrl.propertyName

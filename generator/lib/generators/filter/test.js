@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const { eslintCheck } = require('../../testHelper')
+const h = require('../../testHelper')
 require('chai').should()
 
 
@@ -10,7 +10,7 @@ describe('filter', () => {
       .withArguments(['emoji'])
       .on('end', function () {
         const file = 'app/filters/emoji.js'
-        eslintCheck(this, [file])
+        h.eslintCheck(this, [file])
         assert.file(file)
         assert.fileContent(file, 'filter(\'emoji\', ')
         done()

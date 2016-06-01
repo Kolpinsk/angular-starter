@@ -1,7 +1,7 @@
 const path = require('path')
-const { pascal, kebab } = require('case')
+const Case = require('case')
 const yeoman = require('yeoman-generator')
-const { getConstants } = require('../../testHelper')
+const h = require('../../testHelper')
 
 const componentNamePromptTemplate = `
 Angular component’s name: "$ yo as:component button";
@@ -17,8 +17,8 @@ module.exports = yeoman.Base.extend({
     })
   },
   writing() {
-    const constants = getConstants(this)
-    const componentName = kebab(this.componentName)
+    const constants = h.getConstants(this)
+    const componentName = Case.kebab(this.componentName)
     const create = (template, dest) => {
       if (dest === undefined) {
         dest = template // eslint-disable-line
@@ -26,7 +26,7 @@ module.exports = yeoman.Base.extend({
       this.fs.copyTpl(
         this.templatePath(template),
         this.destinationPath(path.join(`app/components/${componentName}/`, dest)),
-        { componentName, pascal, kebab, constants }
+        { componentName, Case, constants }
       )
     }
     const files = [
