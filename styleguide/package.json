@@ -11,8 +11,8 @@
     "test": "mocha tests/test.js"
   },
   "engines": {
-    "node": ">=6",
-    "npm": ">=3"
+    "node": ">=4",
+    "npm": ">=2"
   },
   "files": [
     "views/",
