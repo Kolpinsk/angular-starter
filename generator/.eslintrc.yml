@@ -5,3 +5,5 @@ env:
 
 rules:
   func-names: off
+  prefer-rest-params: off
+  prefer-spread: off

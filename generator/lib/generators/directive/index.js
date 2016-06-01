@@ -8,8 +8,8 @@ directive will be initialized in created file app/directives/autofocus.js
 `
 
 module.exports = yeoman.Base.extend({
-  constructor: function (...args) { // eslint-disable-line
-    yeoman.Base.apply(this, args)
+  constructor: function () { // eslint-disable-line
+    yeoman.Base.apply(this, arguments)
     this.argument('directiveName', {
       type: String,
       desc: directiveNamePromptTemplate,

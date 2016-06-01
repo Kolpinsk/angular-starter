@@ -8,8 +8,8 @@ service will be initialized in created file app/services/api.js
 `
 
 module.exports = yeoman.Base.extend({
-  constructor: function (...args) { // eslint-disable-line
-    yeoman.Base.apply(this, args)
+  constructor: function () { // eslint-disable-line
+    yeoman.Base.apply(this, arguments)
     this.argument('serviceName', {
       type: String,
       desc: serviceNamePromptTemplate,

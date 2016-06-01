@@ -16,8 +16,8 @@ and you will be redirected to that folder
 `
 
 module.exports = yeoman.Base.extend({
-  constructor: function (...args) { // eslint-disable-line
-    yeoman.Base.apply(this, args)
+  constructor: function () { // eslint-disable-line
+    yeoman.Base.apply(this, arguments)
     this.argument('name', { type: String, required: false,
       desc: appNamePromptTemplate,
     })

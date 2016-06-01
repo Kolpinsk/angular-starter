@@ -9,8 +9,8 @@ page will be initialized in created file app/pages/index/index.js
 `
 
 module.exports = yeoman.Base.extend({
-  constructor: function (...args) { // eslint-disable-line
-    yeoman.Base.apply(this, args)
+  constructor: function () { // eslint-disable-line
+    yeoman.Base.apply(this, arguments)
     this.argument('pageName', {
       type: String,
       desc: pageNamePromptTemplate,

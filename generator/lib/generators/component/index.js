@@ -9,8 +9,8 @@ component will be initialized in created file app/components/button/index.js
 `
 
 module.exports = yeoman.Base.extend({
-  constructor: function (...args) { // eslint-disable-line
-    yeoman.Base.apply(this, args)
+  constructor: function () { // eslint-disable-line
+    yeoman.Base.apply(this, arguments)
     this.argument('componentName', {
       type: String,
       desc: componentNamePromptTemplate,
