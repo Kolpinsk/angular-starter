@@ -8,7 +8,9 @@ const postcss = require('postcss-middleware')
 
 const view = template => path.join(__dirname, 'views', template)
 
-module.exports = ({ constants, componentsDir }) => {
+module.exports = options => {
+  const constants = options.constants
+  const componentsDir = options.componentsDir
   const styleguideMiddleware = express.Router() // eslint-disable-line
 
   const getComponentsNames = () => fs.readdir(componentsDir)
