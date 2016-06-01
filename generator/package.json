@@ -45,10 +45,10 @@
   "devDependencies": {
     "babel-eslint": "^6.0.4",
     "chai": "^3.5.0",
-    "eslint": "^2.9.0",
-    "eslint-config-as": "^0.1.4",
+    "eslint": "^2.11.1",
+    "eslint-config-as": "^0.1.6",
     "eslint-plugin-import": "^1.8.1",
-    "mocha": "^2.4.5",
+    "mocha": "^2.5.3",
     "mocha-clean": "^1.0.0",
     "yeoman-assert": "^2.2.1",
     "yeoman-test": "^1.4.0"
