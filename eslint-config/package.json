@@ -7,8 +7,8 @@
     "index.js"
   ],
   "engines": {
-    "node": ">=6",
-    "npm": ">=3"
+    "node": ">=4",
+    "npm": ">=2"
   },
   "dependencies": {
     "eslint": "^2.11.1",
