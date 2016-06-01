@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "eslint": "^2.9.0",
-    "eslint-config-as": "^0.1.4"
+    "eslint-config-as": "^0.1.4",
+    "eslint-plugin-import": "^1.8.1"
   }
 }

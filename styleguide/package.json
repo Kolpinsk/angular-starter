@@ -52,6 +52,7 @@
     "chai": "^3.5.0",
     "eslint": "^2.10.1",
     "eslint-config-as": "^0.1.4",
+    "eslint-plugin-import": "^1.8.1",
     "mocha": "^2.4.5",
     "supertest": "^1.2.0"
   }

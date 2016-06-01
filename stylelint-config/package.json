@@ -24,7 +24,8 @@
   "homepage": "https://github.com/Nitive/angular-starter#readme",
   "devDependencies": {
     "eslint": "^2.4.0",
-    "eslint-config-as": "^0.1.5"
+    "eslint-config-as": "^0.1.5",
+    "eslint-plugin-import": "^1.8.1"
   },
   "dependencies": {
     "stylelint-config-standard": "^8.0.0"
