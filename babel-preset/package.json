@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": ">=6",
-    "npm": ">=3"
+    "node": ">=4",
+    "npm": ">=2"
   },
   "keywords": [],
   "license": "MIT",
