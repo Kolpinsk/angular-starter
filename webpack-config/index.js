@@ -128,7 +128,8 @@ const preset = exports.preset = {
 
 // const result = wpk.extend(preset, { profile: 'dev' })
 
-exports.extend = R.curry((configs, options) => {
+exports.extend = R.curry((_configs, options) => {
+  const configs = [preset].concat(_configs)
   options.transformers = R.concat(
     options.transformers || [],
     R.values(transformers)
