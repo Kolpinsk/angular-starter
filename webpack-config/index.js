@@ -50,23 +50,23 @@ const preset = exports.preset = {
     preLoaders: {
       'source-map': {
         test: /\.js$/,
-        loader: 'source-map',
+        loaders: ['source-map'],
       },
     },
     loaders: {
       babel: {
         test: /\.js$/,
-        loader: 'babel',
+        loaders: ['babel'],
         exclude: /node_modules/,
       },
       eslint: {
         test: /\.js$/,
-        loader: 'eslint',
+        loaders: ['eslint'],
         exclude: /node_modules/,
       },
       json: {
         test: /\.json$/,
-        loader: 'json',
+        loaders: ['json'],
       },
       style: {
         test: /\.sss$/,
@@ -82,7 +82,7 @@ const preset = exports.preset = {
       },
       images: {
         test: /\.(jpg|png|gif)$/,
-        loader: 'file',
+        loaders: ['file'],
       },
     },
   },
