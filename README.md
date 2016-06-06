@@ -21,7 +21,7 @@ yo as project-name
 ## Modern stack
 This boilerplate use this technologies:
 
-- Node.js v6 (You **must** use **v4+**)
+- Node.js v4+ (You **must** use **v4+**)
 - Webpack
 - PostCSS
 - Angular
