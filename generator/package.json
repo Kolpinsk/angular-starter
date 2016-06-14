@@ -14,7 +14,7 @@
     "npm": ">=2"
   },
   "files": [
-    "generators",
+    "lib",
     "README.md"
   ],
   "main": "generators/index.js",
