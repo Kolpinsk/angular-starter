@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const webpack = require('webpack')
 const constants = require('./app/helpers/constants.json')
-const { findAPortNotInUse } = require('portscanner')
+const portscanner = require('portscanner')
 const styleguide = require('styleguide-as')
 
 
@@ -32,7 +32,7 @@ app.use('/styleguide', styleguide({
 
 app.get('*', (req, res) => res.render('index', { constants }))
 
-findAPortNotInUse(3000, 3010, 'localhost', (err, port) => {
+portscanner.findAPortNotInUse(3000, 3010, 'localhost', (err, port) => {
   if (err) console.error(err)
   if (!port) console.error('Port not found')
   app.server = app.listen(port, error => {
