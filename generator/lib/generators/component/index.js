@@ -1,7 +1,7 @@
 const path = require('path')
 const Case = require('case')
 const yeoman = require('yeoman-generator')
-const h = require('../../testHelper')
+const h = require('../../helper')
 
 const componentNamePromptTemplate = `
 Angular component’s name: "$ yo as:component button";

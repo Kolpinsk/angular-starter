@@ -1,6 +1,6 @@
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const h = require('../../testHelper')
+const h = require('../../test-helper')
 require('chai').should()
 
 
