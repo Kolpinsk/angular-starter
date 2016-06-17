@@ -35,6 +35,5 @@ module.exports = yeoman.Base.extend({
       'style.sss',
     ]
     files.forEach(file => create(file))
-    h.eslintCheck(this, files)
   },
 })

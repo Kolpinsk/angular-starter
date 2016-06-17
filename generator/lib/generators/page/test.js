@@ -25,11 +25,12 @@ describe('page', () => {
   it('generates index.js right', done => {
     h.runGeneratorInApp(__dirname)
       .withArguments(['page'])
-      .on('end', () => {
+      .on('end', function () {
         assert.fileContent([
           [p('page/index.js'), 'function PageController'],
           [p('page/index.js'), 'route(\'page\', '],
         ])
+        h.eslintCheck(this, [p('page/index.js')])
         done()
       })
       .on('error', done)
