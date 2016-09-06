@@ -111,8 +111,8 @@ MIT © [Maxim Samoilov](https://twitter.com/_nitive)
 
 [npm-image]: https://badge.fury.io/js/generator-as.svg
 [npm-url]: https://npmjs.org/package/generator-as
-[travis-image]: https://travis-ci.org/Nitive/angular-starter.svg?branch=master
-[travis-url]: https://travis-ci.org/Nitive/angular-starter
+[travis-image]: https://travis-ci.org/CSSSR/angular-starter.svg?branch=master
+[travis-url]: https://travis-ci.org/CSSSR/angular-starter
 
 [postcss-url]: https://github.com/postcss/postcss
 [precss-url]: https://github.com/jonathantneal/precss
